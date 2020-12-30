@@ -15,7 +15,7 @@ function NoteBar() {
 }
 function Notification() {
   return(
-    <section className="Notification">
+    <section id="Notification" className="Notification">
       <nav>
         <span>Notification</span>
       </nav>

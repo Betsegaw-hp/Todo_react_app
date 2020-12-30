@@ -10,11 +10,11 @@ function Chart() {
 
 function Statics() {
   return (
-    <section className="Statics">
+    <section id="Statics" className="Statics">
       <nav>
       <span>Statics</span>
     </nav>
-    <div class="select-date">
+    <div className="select-date">
       <select  id="date-select">
         <option value="30 days">30 days</option>
         <option value="7 days">7 days</option>

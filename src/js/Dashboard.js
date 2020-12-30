@@ -51,7 +51,7 @@ function ListCard() {
 
 function Dashboard() {
   return(
-    <section className="Dashboard">
+    <section id="Dashboard" className="Dashboard">
     <nav>
       <span>DashBoard</span>
     </nav>
