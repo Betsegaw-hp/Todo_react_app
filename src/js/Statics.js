@@ -1,8 +1,28 @@
 import React from 'react';
 
+function Chart() {
+  return(
+    <div className="chart-container">
+      <h1>I am the chart</h1>
+    </div>
+  )
+}
+
 function Statics() {
   return (
-    <h1>I am statics!</h1>
+    <section className="Statics">
+      <nav>
+      <span>Statics</span>
+    </nav>
+    <div class="select-date">
+      <select  id="date-select">
+        <option value="30 days">30 days</option>
+        <option value="7 days">7 days</option>
+      </select>
+    </div>
+      
+      <Chart />
+    </section>
   );
 }
 
