@@ -59,6 +59,24 @@ body {
   transition: var(--transition);
 }
 /* 
+=== scroll bar ===
+*/
+body::-webkit-scrollbar,
+.nav-list::-webkit-scrollbar {
+  width: 1rem;
+}
+
+body::-webkit-scrollbar-track,
+.nav-list::-webkit-scrollbar-track-piece {
+  background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb,
+.nav-list::-webkit-scrollbar-thumb {
+  background: var(--light-blue);
+  border-radius: .3rem; 
+}
+/* 
  ==== btn ==== 
 */
  .success-btn,
@@ -97,15 +115,14 @@ body {
   display: flex;
   overflow: hidden;
   align-items: center;
+  overflow: auto;
 }
 .nav-list-item {
   flex-shrink:1 ;
   width: 100%;
  padding: 1rem 2rem;
- filter: grayscale(100%) opacity(0.7);
+ filter: grayscale(100%) opacity(0.5);
  cursor: pointer;
- display: grid;
- place-content: center;
 }
 .nav-list-item:first-child {
   display: none;
@@ -136,7 +153,8 @@ body {
    color: var(--white);
    font-size: 1.5rem;
    font-weight: 600;
-  
+   letter-spacing: .6ch;
+   text-transform: uppercase;
  }
  .form-container {
    display: grid;
@@ -184,13 +202,17 @@ body {
   ===== List(Task) Card ====== 
  */
  .listCard-continer {
-   display: grid;
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: space-evenly;
    place-content: center;
-   margin: 2rem 0;
  }
  .list-card {
+   /* flex: grow shrink bias */
+   flex: 0 1 1;
    padding: 1.5rem;
-   max-width: 100%;
+   margin: 2rem;
+   width: 25rem;
    background: var(--background-form);
    border-radius: .5rem;
    -webkit-box-shadow: var(--shadow1);
@@ -229,7 +251,8 @@ body {
   color: var(--white);
   font-size: 1.5rem;
   font-weight: 600;
- 
+  letter-spacing: .6ch;
+  text-transform: uppercase;
 }
 #date-select {
   padding: .4rem;
@@ -256,7 +279,8 @@ padding: 1rem 4rem;
  color: var(--white);
  font-size: 1.5rem;
  font-weight: 600;
-
+ letter-spacing: .6ch;
+ text-transform: uppercase;
 }
 .Bar {
   background: var(--background-form);
@@ -292,6 +316,8 @@ padding: 1rem 4rem;
  color: var(--white);
  font-size: 1.5rem;
  font-weight: 600;
+ letter-spacing: .6ch;
+ text-transform: uppercase;
 }
 .warning {
   display: grid;
@@ -314,6 +340,8 @@ padding: 1rem 4rem;
   color: var(--white);
   font-size: 1.5rem;
   font-weight: 600;
+  letter-spacing: .6ch;
+  text-transform: uppercase;
 }
 /* 
   @media 
@@ -329,15 +357,48 @@ padding: 1rem 4rem;
   .navbar:hover {
     width: 16rem;
   }
-  .navbar:hover .list-name {
-    /* display: inline-block; */
-  }
-  .nav-list-item:first-child {
+  .navbar .list-name {
     display: block;
+    opacity: 0;
+    letter-spacing: 0.3ch;
+    text-transform: capitalize;
+    transition-delay: .1s;
+    transition: opacity .4s ease-in-out;
+  }
+  .navbar .logo-text {
+    opacity: 0;
+    line-break: strict;
+    margin-left: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3ch;
+    font-size: 1rem;
+    font-weight: bold;
+    transform: translateX(-10%);
+    transition: transform .5s  ease-in-out;
+  }
+  .navbar:hover .logo-text {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  .navbar:hover .list-name {
+    opacity: 1;
   }
   .nav-list {
     flex-direction: column;
     height: 100%;
+    overflow-x: hidden;
+  }
+  .nav-list-item {
+    padding: 1.5rem 2rem 1.5rem 5rem;
+  }
+  .nav-list-item:first-child {
+    display: block;
+    margin-bottom:1.5rem;
+    background:#01070f ;
+    transition: var(--transition);
+  }
+  .navbar:hover .nav-list-item:first-child img {
+    animation: rotator  1.5s ease-in-out .2s;
   }
   .nav-list-item a {
     display: flex;
@@ -360,16 +421,35 @@ padding: 1rem 4rem;
     padding:0 0 0 5rem ;
   }
    
+  .listCard-continer {
+    grid-template-columns: auto auto;
+  }
 }
 /* 
 for significantly small devices
 */
 @media only screen and (min-width: 400px) {
-  .list-card {
-    width: 100%;
-  }
   .list-card .show-time {
     display: flex;
+    flex-flow: row wrap;
     justify-content: space-around;
+  }
+}
+
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg) ;
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(10deg) ;
+  }
+  75% {
+    transform: rotate(80deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }

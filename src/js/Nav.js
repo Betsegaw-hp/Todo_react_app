@@ -17,6 +17,9 @@ function Nav(props) {
             <li className="nav-list-item">
               <a href="#home">
               <img src={logoIcon} alt="dashboard-icon"/>
+              <span className="logo-text">
+               todo
+              </span>
               </a>
             </li>
             <li className="nav-list-item"
@@ -51,7 +54,7 @@ function Nav(props) {
                 onClick={changeTab}>
             <a href="#Account">
               <img src={userIcon} alt="user Account-icon"/>
-                <span className="list-name">Account</span>
+                <span className="list-name">account</span>
               </a>
             </li>
           </ul>

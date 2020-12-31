@@ -27,7 +27,6 @@ function FormCard() {
 
 function ListCard() {
   return(
-    <div className="listCard-continer">
       <div className="list-card">
           <h3 className="title">Title</h3>
         <div className="description">
@@ -44,8 +43,6 @@ function ListCard() {
         <button className="remove-btn danger-btn">Remove</button>
         <button className="done-btn success-btn">Done</button>
       </div>
-    </div>
-    
   ) 
 }
 
@@ -56,7 +53,12 @@ function Dashboard() {
       <span>DashBoard</span>
     </nav>
     <FormCard />
+    <div className="listCard-continer">
     <ListCard />
+    <ListCard />
+    <ListCard />
+    <ListCard />
+    </div>
     </section>
   )
 }
