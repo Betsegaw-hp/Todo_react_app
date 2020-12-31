@@ -17,6 +17,10 @@
       "purpose": "maskable any"
     }
   ],
+  "developer": {
+    "name": "Betsegaw Tesfaye",
+    "url": "https://github.com/Betsegaw-hp"
+  },
   
   "display": "fullscreen",
   "theme_color": "#000000",

@@ -4,8 +4,8 @@ import Account from './Account.js';
 import Dashboard from './Dashboard.js';
 import Nav from './Nav.js';
 import Notification from './Notification.js';
+import Setting from './Setting.js';
 import Statics from './Statics.js';
-
 
 
 function App() {
@@ -16,20 +16,24 @@ function App() {
   
    switch (navStatus) {
      case 'Dashboard':
-       console.log('dashboard');
+       console.log(navStatus);
        currentTab = <Dashboard /> ;
        break;
      case 'Statics':
-       console.log('Statics');
+      console.log(navStatus);
        currentTab = <Statics /> ;
        break;
      case 'Notification':
-       console.log('Notification');
+      console.log(navStatus);
        currentTab = <Notification /> ;
        break;
      case 'Account':
-       console.log('Account');
+      console.log(navStatus);
        currentTab = <Account /> ;
+       break;
+     case 'Setting':
+      console.log(navStatus);
+       currentTab = <Setting /> ;
        break;
 
      default:
@@ -37,7 +41,7 @@ function App() {
        break;
    }
  
- function callme(e) {
+ function changeTab(e) {
   let element = e.currentTarget.children;
   let navName = element[0].getAttribute('href');
   navName = navName.slice(1);
@@ -46,7 +50,7 @@ function App() {
   return (
     <>
       {currentTab}
-   <Nav callme={callme} />
+   <Nav changeTab={changeTab} />
     </>
    
   );

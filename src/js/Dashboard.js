@@ -7,15 +7,15 @@ function FormCard() {
             <h3>Add</h3>
             <input type="text" 
                   placeholder="Title for your plan"
-                  className="title-input" /> <br></br>
+                  className="title-input" required/> <br></br>
             <input type="text" 
                     placeholder="Description"  
-                    className="label-input" /><br></br>
-            <label >Start-Date: </label>
-            <input type="date" className="start-date" /><br></br>
-            <label >Dead-line: </label>
-            <input type="date"
-                   className="dead-line"/><br></br>
+                    className="label-input" required/><br></br>
+            <label htmlFor="start-date">Start-Date: </label>
+            <input type="date" id="start-date" className="start-date" /><br></br>
+            <label htmlFor="dead-line">Dead-line: </label>
+            <input type="date" id="dead-line"
+                   className="dead-line" required/><br></br>
 
             <input type="submit" 
                    className="add-form success-btn" />  

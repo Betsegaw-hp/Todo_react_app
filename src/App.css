@@ -45,7 +45,8 @@ a {
   width: 100%;
 }
 img {
-  width: 35px;
+  display: block;
+  width:30px;
 }
 
 body {
@@ -85,8 +86,6 @@ body {
  ===== Nav =====
 */
 .navbar {
-  padding: 0;
-  margin: 0;
   position: fixed;
   bottom: 0;
   width: 100vw;
@@ -96,19 +95,23 @@ body {
 
 .nav-list {
   display: flex;
-  justify-content: space-between;
   overflow: hidden;
   align-items: center;
 }
 .nav-list-item {
   flex-shrink:1 ;
-  flex-grow: 1;
   width: 100%;
  padding: 1rem 2rem;
  filter: grayscale(100%) opacity(0.7);
  cursor: pointer;
  display: grid;
  place-content: center;
+}
+.nav-list-item:first-child {
+  display: none;
+}
+.nav-list-item:last-child {
+  margin-top: auto;
 }
 .nav-list-item:hover {
   background: var(--nav-secondary) ;
@@ -166,6 +169,7 @@ body {
  .form-card .start-date, .dead-line {
    padding: .4rem;
    margin-bottom: 1rem;
+   outline-color: var(--light-blue);
  }
  .form-card .add-form {
    float: right;
@@ -186,16 +190,12 @@ body {
  }
  .list-card {
    padding: 1.5rem;
-   width: 20rem;
+   max-width: 100%;
    background: var(--background-form);
    border-radius: .5rem;
    -webkit-box-shadow: var(--shadow1);
    -moz-box-shadow: var(--shadow1);
    box-shadow: var(--shadow1);
- }
- .list-card .show-time {
-   display: flex;
-   justify-content: space-around;
  }
  .list-card .counter {
    display: flex;
@@ -205,7 +205,7 @@ body {
  }
  .list-card  button  {
    float: right;
-   margin: 0 .5rem;
+   margin: .5rem;
    transition: var(--transition);
  }
  .list-card
@@ -284,7 +284,7 @@ padding: 1rem 4rem;
   min-height: 100vh;
 }
 .Account nav {
-padding: 1rem 4rem;
+ padding: 1rem 4rem;
  margin-bottom: 1rem;
  background: var(--nav);
 }
@@ -300,11 +300,26 @@ padding: 1rem 4rem;
 }
 
 /* 
+  Setting
+*/
+.Setting {
+  min-height: 100vh;
+ }
+ .Setting nav {
+  padding: 1rem 4rem;
+  margin-bottom: 1rem;
+  background: var(--nav);
+ }
+.Setting nav span {
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+/* 
   @media 
 */
 @media only screen and (min-width: 600px) {
   .navbar {
-    position: sticky;
     top: 0;
     width: 5rem;
     height: 100vh;
@@ -315,6 +330,9 @@ padding: 1rem 4rem;
     width: 16rem;
   }
   .navbar:hover .list-name {
+    /* display: inline-block; */
+  }
+  .nav-list-item:first-child {
     display: block;
   }
   .nav-list {
@@ -328,21 +346,30 @@ padding: 1rem 4rem;
   .nav-list-item a .list-name {
     padding-left: 1rem;
   }
-  
-  .nav-list-item:last-child {
-    margin-top: auto;
-  }
   /* nav in each section */
   .Dashboard nav,
   .Statics nav,
   .Account nav,
-  .Notification nav
+  .Notification nav,
+  .Setting nav
    {
     padding: 1rem 2.5rem;
   }
   .Dashboard, .Account,
-  .Statics,.Notification {
+  .Statics,.Notification, .Setting {
     padding:0 0 0 5rem ;
   }
    
+}
+/* 
+for significantly small devices
+*/
+@media only screen and (min-width: 400px) {
+  .list-card {
+    width: 100%;
+  }
+  .list-card .show-time {
+    display: flex;
+    justify-content: space-around;
+  }
 }
