@@ -1,11 +1,10 @@
 import React from 'react';
-import '../App.css';
-import analyticsIcon from '../media/analytics.svg';
-import dashboardIcon from '../media/dashborad.svg';
-import notificationIcon from '../media/notification-bell.svg';
-import cogsIcon from '../media/setting.svg';
-import logoIcon from '../media/todo-app-logo.svg';
-import userIcon from '../media/user.svg';
+import analyticsIcon from '../../../media/analytics.svg';
+import dashboardIcon from '../../../media/dashborad.svg';
+import notificationIcon from '../../../media/notification-bell.svg';
+import cogsIcon from '../../../media/setting.svg';
+import logoIcon from '../../../media/todo-app-logo.svg';
+import userIcon from '../../../media/user.svg';
 
 function Nav(props) {
   const {

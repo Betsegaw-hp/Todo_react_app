@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import '../App.css';
-import Account from './Account.js';
-import Dashboard from './Dashboard.js';
-import Nav from './Nav.js';
-import Notification from './Notification.js';
-import Setting from './Setting.js';
-import Statics from './Statics.js';
+import Account from './Components//Account/Account';
+import Dashboard from './Components/Dasboard/Dashboard';
+import Nav from './Components/Nav/Nav';
+import Notification from './Components/Notification/Notification';
+import Setting from './Components/Setting/Setting';
+import Statics from './Components/statics/Statics';
 
 
 function App() {

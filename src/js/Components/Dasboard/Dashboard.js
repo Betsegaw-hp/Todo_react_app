@@ -6,11 +6,13 @@ function FormCard() {
       <form className="form-card">
             <h3>Add</h3>
             <input type="text" 
-                  placeholder="Title for your plan"
-                  className="title-input" required/> <br></br>
+                  placeholder=""
+                  className="title-input" required/>
+                  <span>Title for your plan</span><br></br>
             <input type="text" 
-                    placeholder="Description"  
-                    className="label-input" required/><br></br>
+                    placeholder=""  
+                    className="label-input" required/>
+                    <span>Description</span><br></br>
             <label htmlFor="start-date">Start-Date: </label>
             <input type="date" id="start-date" className="start-date" /><br></br>
             <label htmlFor="dead-line">Dead-line: </label>
@@ -41,7 +43,7 @@ function ListCard() {
           </div>
         <button className="edit-btn warning-btn">Edit</button>
         <button className="remove-btn danger-btn">Remove</button>
-        <button className="done-btn success-btn">Done</button>
+        <button className="done-btn success-btn">Completed</button>
       </div>
   ) 
 }
