@@ -6,6 +6,7 @@ import Nav from './Components/Nav/Nav';
 import Notification from './Components/Notification/Notification';
 import Setting from './Components/Setting/Setting';
 import Statics from './Components/statics/Statics';
+import AddTaskContextProvider from './Contexts/addTaskContext';
 
 
 function App() {
@@ -48,10 +49,10 @@ function App() {
   setNavStatus(navName);
 }
   return (
-    <>
+    <AddTaskContextProvider>
       {currentTab}
    <Nav changeTab={changeTab} />
-    </>
+    </AddTaskContextProvider>
    
   );
 }

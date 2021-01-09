@@ -1,12 +1,6 @@
 import React from 'react';
+import ChartGraph from './ChartGraph';
 
-function Chart() {
-  return(
-    <div className="chart-container">
-      <h1>I am the chart</h1>
-    </div>
-  )
-}
 
 function Statics() {
   return (
@@ -21,7 +15,7 @@ function Statics() {
       </select>
     </div>
       
-      <Chart />
+      <ChartGraph />
     </section>
   );
 }

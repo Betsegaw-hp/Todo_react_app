@@ -253,6 +253,7 @@ body::-webkit-scrollbar-thumb,
    flex-flow: row wrap;
    justify-content: space-evenly;
    place-content: center;
+   margin-bottom:5rem;
  }
  .list-card {
    /* flex: grow shrink bias */
@@ -265,6 +266,15 @@ body::-webkit-scrollbar-thumb,
    -webkit-box-shadow: var(--shadow1);
    -moz-box-shadow: var(--shadow1);
    box-shadow: var(--shadow1);
+ }
+ .list-card .title {
+   text-transform: capitalize;
+ }
+ .list-card .description > p {
+   display: block;
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
  }
  .list-card .counter {
    display: flex;
