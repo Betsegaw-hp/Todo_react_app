@@ -14,7 +14,7 @@ const AddTaskContextProvider = (props) => {
     const editedTask = tasks.filter((task)=> {
       return task.id === id
     })
-    console.table(editedTask)
+    return editedTask;
   }
   const removeTask = (id) => {
     setTasks(tasks.filter(task => task.id !== id))

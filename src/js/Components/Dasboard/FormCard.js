@@ -28,14 +28,14 @@ const FormCard = () => {
                   value={title}
                   onChange={e => setTitle(e.target.value)}
                    required/>
-                  <span>Title for your plan</span><br></br>
+                  <span>Add a task</span><br></br>
             <input type="text" 
                     placeholder=""  
                     className="label-input"
                     value={label}
                     onChange={e =>setLabel(e.target.value) }
                      required/>
-                    <span>Description</span><br></br>
+                    <span>label</span><br></br>
             <label htmlFor="start-date">Start-Date: </label>
             <input type="date" 
                    id="start-date" 

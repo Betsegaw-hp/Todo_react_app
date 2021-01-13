@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { TaskContext } from '../../Contexts/addTaskContext';
 
 
@@ -12,16 +12,40 @@ const ListCard = (props) => {
     dLine,
     id
   } = props;
+  const [timeGap, setTimeGap] = useState('');
+
+  useEffect(()=> {
+    // One day Time in ms (milliseconds) 
+    const one_day = 1000 * 60 * 60 * 24 ;
+
+    let startDate = new Date(sDate);
+    let deadLine = new Date(dLine);
+    startDate.getTime(); deadLine.getTime()
+
+    const TimeIntervalInmilli = deadLine - startDate;
+
+    const TimeIntervalInDay = Math.floor(TimeIntervalInmilli / one_day)
+
+    console.log(TimeIntervalInmilli, TimeIntervalInDay)
+
+    calculateTimeGap(TimeIntervalInDay)
+
+  },[sDate, dLine])
 
   const handleRemoveClick = (e) => {
     removeTask(id)
   }
   const handleEditClick = (e) => {
-    editTask(id);
+    const editedTask =   editTask(id);
+    console.log(editedTask)
   }
   const handleCompleteClick = () => {
 
   }
+  function calculateTimeGap(day) {
+    if( day < 0) return setTimeGap('Expired')
+    return setTimeGap(`${day !== 0 ? day + ' day left': 'Today'}`);
+  } 
   return (
     <li className="list-card">
         <h3 className="title">{title}</h3>
@@ -33,7 +57,7 @@ const ListCard = (props) => {
         <h4>Dead line: <span className="dead-date">{dLine}</span></h4> 
         </div>
         <div className="counter">
-            <i><span className="counter-time">5 days</span> left</i>
+            <i><span className="counter-time">{timeGap}</span></i>
           </div>
         <button className="edit-btn warning-btn"
                 onClick={handleEditClick}>Edit</button>
