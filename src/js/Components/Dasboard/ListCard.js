@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { TaskContext } from '../../Contexts/addTaskContext';
-
+import Modal from './Modal';
 
 const ListCard = (props) => {
-  const { removeTask, editTask, taskCompleted} = useContext(TaskContext);
+  const { removeTask, taskCompleted} = useContext(TaskContext);
 
   const {
     title,
@@ -13,6 +13,7 @@ const ListCard = (props) => {
     id
   } = props;
   const [timeGap, setTimeGap] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(()=> {
     // One day Time in ms (milliseconds) 
@@ -32,20 +33,22 @@ const ListCard = (props) => {
 
   },[sDate, dLine])
 
+  function calculateTimeGap(day) {
+      if( day < 0) return setTimeGap('Expired')
+      
+      return setTimeGap(`${day !== 0 ? day + ' day left': 'Today'}`);
+    } 
+
   const handleRemoveClick = (e) => {
     removeTask(id)
   }
   const handleEditClick = (e) => {
-    const editedTask =   editTask(id);
-    console.log(editedTask)
+     setIsModalOpen(true);
   }
   const handleCompleteClick = () => {
 
   }
-  function calculateTimeGap(day) {
-    if( day < 0) return setTimeGap('Expired')
-    return setTimeGap(`${day !== 0 ? day + ' day left': 'Today'}`);
-  } 
+
   return (
     <li className="list-card">
         <h3 className="title">{title}</h3>
@@ -64,7 +67,15 @@ const ListCard = (props) => {
         <button className="remove-btn danger-btn"
                 onClick={handleRemoveClick}>Remove</button>
         <button className="done-btn success-btn"
-                onClick={handleCompleteClick}>Completed</button>
+                onClick={handleCompleteClick}>Completed</button>       
+                {/* expermental */}
+       <Modal modalOpen={isModalOpen}
+              onClose={() => setIsModalOpen(false)}
+              sDate={sDate}
+              dLine={dLine}
+              title={title}
+              label={label}
+              id={id} />
     </li>
   )
 }

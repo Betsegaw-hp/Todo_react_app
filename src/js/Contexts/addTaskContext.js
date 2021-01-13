@@ -10,14 +10,15 @@ const AddTaskContextProvider = (props) => {
     setTasks([...tasks, {title, label,deadline, startDate, id: uuid()}])
   }
   console.table(tasks)
-  const editTask = (id) => {
-    const editedTask = tasks.filter((task)=> {
-      return task.id === id
-    })
-    return editedTask;
+
+  const editTask = (id,title, label,deadline, startDate) => {
+    
+    
+     console.table(tasks)
   }
+  
   const removeTask = (id) => {
-    setTasks(tasks.filter(task => task.id !== id))
+   return setTasks(tasks.filter(task => task.id !== id))
   }
   const taskCompleted = () => {
     

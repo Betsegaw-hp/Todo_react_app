@@ -1,7 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { TaskContext } from '../../Contexts/addTaskContext';
+ 
+
 
 const FormCard = () => {
+  
   const [title, setTitle] = useState('');
   const [label, setLabel] = useState('');
   const [sDate, setSdate] = useState('');
@@ -22,6 +25,7 @@ const FormCard = () => {
     <div className="form-container">
       <form className="form-card" onSubmit={e => HandleSubmit(e)}>
             <h3>Add</h3>
+            
             <input type="text" 
                   placeholder=""
                   className="title-input"
@@ -29,6 +33,7 @@ const FormCard = () => {
                   onChange={e => setTitle(e.target.value)}
                    required/>
                   <span>Add a task</span><br></br>
+
             <input type="text" 
                     placeholder=""  
                     className="label-input"
@@ -36,12 +41,15 @@ const FormCard = () => {
                     onChange={e =>setLabel(e.target.value) }
                      required/>
                     <span>label</span><br></br>
+
             <label htmlFor="start-date">Start-Date: </label>
             <input type="date" 
                    id="start-date" 
                    className="start-date"
                    value={sDate}
-                   onChange={e => setSdate(e.target.value)} /><br></br>
+                   onChange={e => setSdate(e.target.value)} 
+                   required/><br></br>
+
             <label htmlFor="dead-line">Dead-line: </label>
             <input type="date"
                    id="dead-line"
