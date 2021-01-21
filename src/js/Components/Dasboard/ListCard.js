@@ -16,28 +16,29 @@ const ListCard = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(()=> {
+    let startDate = new Date(sDate);
+    let deadLine = new Date(dLine);
+     startDate.getTime(); 
+     deadLine.getTime();
+
+ 
     // One day Time in ms (milliseconds) 
     const one_day = 1000 * 60 * 60 * 24 ;
 
-    let startDate = new Date(sDate);
-    let deadLine = new Date(dLine);
-    startDate.getTime(); deadLine.getTime()
+   const TimeIntervalInmilli = deadLine - startDate;
+    
+    const TimeIntervalInDay = Math.floor(TimeIntervalInmilli / one_day);
 
-    const TimeIntervalInmilli = deadLine - startDate;
-
-    const TimeIntervalInDay = Math.floor(TimeIntervalInmilli / one_day)
-
-    console.log(TimeIntervalInmilli, TimeIntervalInDay)
-
-    calculateTimeGap(TimeIntervalInDay)
-
+   return showTimeGap(TimeIntervalInDay)
   },[sDate, dLine])
 
-  function calculateTimeGap(day) {
-      if( day < 0) return setTimeGap('Expired')
+  
+
+  function showTimeGap(day) {
+      if( day < 0) return setTimeGap('Expired');
       
-      return setTimeGap(`${day !== 0 ? day + ' day left': 'Today'}`);
-    } 
+      return setTimeGap(`${day !== 0 ? day + ' day left': 'Time\'s up'}`);
+  } 
 
   const handleRemoveClick = (e) => {
     removeTask(id)

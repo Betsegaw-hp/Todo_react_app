@@ -13,8 +13,14 @@ const AddTaskContextProvider = (props) => {
 
   const editTask = (id,title, label,deadline, startDate) => {
     
-    
-     console.table(tasks)
+    const editedTasks = tasks.map((task, i) => {
+      if(task.id === id) {
+       return tasks[i] = {title, label,deadline, startDate, id: uuid()}
+      }
+      return task
+    })
+
+   setTasks(editedTasks)
   }
   
   const removeTask = (id) => {
