@@ -37,7 +37,7 @@ const ListCard = (props) => {
   function showTimeGap(day) {
       if( day < 0) return setTimeGap('Expired');
       
-      return setTimeGap(`${day !== 0 ? day + ' day left': 'Time\'s up'}`);
+      return setTimeGap(`${day !== 0 ? day + ' day left': 'less than a day'}`);
   } 
 
   const handleRemoveClick = (e) => {

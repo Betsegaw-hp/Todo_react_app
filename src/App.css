@@ -314,6 +314,7 @@ body::-webkit-scrollbar-thumb,
 }
 #date-select {
   padding: .4rem;
+  cursor: pointer;
 }
 .select-date {
   display: flex;
