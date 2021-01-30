@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { TaskContext } from '../../Contexts/addTaskContext';
 import Modal from './Modal';
+import trackTimeInterval from './timeTracker';
 
 const ListCard = (props) => {
   const { removeTask, taskCompleted} = useContext(TaskContext);
@@ -18,18 +19,19 @@ const ListCard = (props) => {
   useEffect(()=> {
     let startDate = new Date(sDate);
     let deadLine = new Date(dLine);
-     startDate.getTime(); 
-     deadLine.getTime();
+    startDate = startDate.setHours(0,0,0,0,0); 
+    deadLine = deadLine.setHours(0,0,0,0,0);
+    const UPDATE_TIME = 300000 ; // 5 min
+    const TimeIntervalInDay = trackTimeInterval(deadLine, startDate);
 
- 
-    // One day Time in ms (milliseconds) 
-    const one_day = 1000 * 60 * 60 * 24 ;
-
-   const TimeIntervalInmilli = deadLine - startDate;
+   setInterval(() => {
+    const TimeIntervalInDayloop = trackTimeInterval(deadLine, startDate); 
+    return showTimeGap(TimeIntervalInDayloop)
+   }, UPDATE_TIME);
     
-    const TimeIntervalInDay = Math.floor(TimeIntervalInmilli / one_day);
-
-   return showTimeGap(TimeIntervalInDay)
+    // first render without Interval
+     return  showTimeGap(TimeIntervalInDay);
+    
   },[sDate, dLine])
 
   
