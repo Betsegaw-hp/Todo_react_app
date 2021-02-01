@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { TaskContext } from '../../Contexts/addTaskContext';
+import CompletedTasks from './complete-faild-task/completed-tasks';
+import FaildTasks from './complete-faild-task/faild-tasks';
 import FormCard from './FormCard';
 import ListCard from './ListCard';
 
@@ -10,6 +12,10 @@ function Dashboard() {
     <section id="Dashboard" className="Dashboard">
     <nav>
       <span>DashBoard</span>
+      <div className="nav-btn-wraper">
+        <CompletedTasks />
+        <FaildTasks />
+      </div>
     </nav>
     <FormCard />
     <ul className="listCard-continer">

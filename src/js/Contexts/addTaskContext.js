@@ -4,7 +4,8 @@ export const TaskContext = createContext();
 
 const AddTaskContextProvider = (props) => {
   const [tasks , setTasks] = useState([]);
-  // const currentDate = new Date();
+  const [completedTasks, setCompletedTasks] = useState([]);
+  
 
   const addTask = (title, label,deadline, startDate) => {
     setTasks([...tasks, {title, label,deadline, startDate, id: uuid()}])
@@ -26,11 +27,18 @@ const AddTaskContextProvider = (props) => {
   const removeTask = (id) => {
    return setTasks(tasks.filter(task => task.id !== id))
   }
-  const taskCompleted = () => {
+  
+  const taskCompleted = (id) => {
+   const filteredTask = tasks.find(task => task.id === id)
+    setCompletedTasks([...completedTasks, filteredTask])
     
+    return setTasks(tasks.filter(task => task.id !== id))
   }
+    console.table( completedTasks)
+   
+  
   return (
-    <TaskContext.Provider value={{tasks, addTask, editTask, removeTask, taskCompleted}}>
+    <TaskContext.Provider value={{tasks,completedTasks, addTask, editTask, removeTask, taskCompleted}}>
       {props.children}
     </TaskContext.Provider>
   )

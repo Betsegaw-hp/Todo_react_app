@@ -158,9 +158,29 @@ body::-webkit-scrollbar-thumb,
   min-height: 100vh;
  }
  .Dashboard nav {
-   padding: 1rem 4rem;
+   display: flex;
+   justify-content: space-between;
+   padding: 1rem 0 1rem 4rem ;
    margin-bottom: 1rem;
    background: var(--nav);
+ }
+ .Dashboard nav .nav-btn-wraper {
+   display: flex;
+   justify-content: space-around;
+ }
+ .Dashboard nav .nav-btn-wraper div {
+   margin: 0 1rem;
+   cursor: pointer;
+ }
+ .Dashboard .completed-tasks-container {
+   position: absolute;
+   top:4rem;
+   background: var(--background3);
+   z-index: 99;
+ }
+ .Dashboard .completed-tasks-container .completed-task {
+   background: var(--background2);
+   padding:1rem;
  }
  .Dashboard nav span {
    color: var(--white);
@@ -259,7 +279,7 @@ body::-webkit-scrollbar-thumb,
  .list-card {
    /* flex: grow shrink bias */
    flex: 0 1 1;
-   padding: 1.5rem;
+   padding: 1.5rem 1.5rem 0 1.5rem;
    margin: 2rem;
    width: 25rem;
    background: var(--background-form);
@@ -283,12 +303,28 @@ body::-webkit-scrollbar-thumb,
    margin: 1rem;
    font-weight: 700;
  }
- .list-card  button  {
-   float: right;
+ .list-card-footer {
+  display: flex;
+  justify-content: space-between;
+ }
+ .list-card-footer .show-date {
+  position: relative;
+  font-size: small;
+  top: 1rem;
+  color: #6c757d !important;
+ }
+ .list-card .list-card-footer .btns  {
+   display: flex;
+   justify-content: space-around;
    margin: .5rem;
    transition: var(--transition);
  }
- .list-card
+ .list-card .list-card-footer  .btns
+.edit-btn, .remove-btn, .done-btn {
+  margin: .5rem;
+  transition: var(--transition);
+ }
+ .list-card .list-card-footer  .btns
 .edit-btn:hover, .remove-btn:hover, .done-btn:hover {
   box-shadow: none;
   border-radius: .2rem;
@@ -489,11 +525,11 @@ padding: 1rem 4rem;
 for significantly small devices
 */
 @media only screen and (min-width: 400px) {
-  .list-card .show-time {
+  /* .list-card {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-  }
+  } */
 }
 
 @keyframes rotator {

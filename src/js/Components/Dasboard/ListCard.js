@@ -1,4 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
+import complete_btn from '../../../media/add_task-black-24dp.svg';
+import delete_btn from '../../../media/delete-black-24dp.svg';
+import edit_btn from '../../../media/mode_edit-black-24dp.svg';
 import { TaskContext } from '../../Contexts/addTaskContext';
 import Modal from './Modal';
 import trackTimeInterval from './timeTracker';
@@ -17,6 +20,10 @@ const ListCard = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(()=> {
+    // to FIX Warning: Can't perform a React state update on an unmounted component.
+    let isMounted = true;
+
+    
     let startDate = new Date(sDate);
     let deadLine = new Date(dLine);
     startDate = startDate.setHours(0,0,0,0,0); 
@@ -30,8 +37,9 @@ const ListCard = (props) => {
    }, UPDATE_TIME);
     
     // first render without Interval
-     return  showTimeGap(TimeIntervalInDay);
-    
+      showTimeGap(TimeIntervalInDay);
+      isMounted = false
+    return isMounted;
   },[sDate, dLine])
 
   
@@ -48,8 +56,9 @@ const ListCard = (props) => {
   const handleEditClick = (e) => {
      setIsModalOpen(true);
   }
-  const handleCompleteClick = () => {
-
+  const handleCompleteClick = (e) => {
+    console.log('completed')
+    taskCompleted(id);
   }
 
   return (
@@ -58,19 +67,29 @@ const ListCard = (props) => {
         <div className="description">
           <p>{label}</p>
         </div>
-        <div className="show-time">
-        <h4>Start Date: <span className="start-date">{sDate}</span> </h4> 
-        <h4>Dead line: <span className="dead-date">{dLine}</span></h4> 
-        </div>
         <div className="counter">
             <i><span className="counter-time">{timeGap}</span></i>
           </div>
-        <button className="edit-btn warning-btn"
-                onClick={handleEditClick}>Edit</button>
-        <button className="remove-btn danger-btn"
-                onClick={handleRemoveClick}>Remove</button>
-        <button className="done-btn success-btn"
-                onClick={handleCompleteClick}>Completed</button>       
+          
+        <div className="list-card-footer">
+          <div className="show-date">
+            <p> <span className="start-date">{sDate}</span> - <span className="dead-date">{dLine}</span> </p> 
+          </div>
+          <div className="btns">
+            <div className="edit-btn warning-btn"
+                onClick={handleEditClick}>
+                  <img src={edit_btn} alt="edit button"/>
+                </div>
+            <div className="remove-btn danger-btn"
+                    onClick={handleRemoveClick}>
+                      <img src={delete_btn} alt="remove button"/>
+                    </div>
+            <div className="done-btn success-btn"
+                    onClick={handleCompleteClick}>
+                    <img src={complete_btn} alt="complete button"/>  
+                    </div> 
+          </div>
+        </div>   
                 {/* expermental */}
        <Modal modalOpen={isModalOpen}
               onClose={() => setIsModalOpen(false)}
