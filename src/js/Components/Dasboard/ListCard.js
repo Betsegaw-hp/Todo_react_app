@@ -31,15 +31,18 @@ const ListCard = (props) => {
     const UPDATE_TIME = 300000 ; // 5 min
     const TimeIntervalInDay = trackTimeInterval(deadLine, startDate);
 
-   setInterval(() => {
-    const TimeIntervalInDayloop = trackTimeInterval(deadLine, startDate); 
-    return showTimeGap(TimeIntervalInDayloop)
+    if(isMounted) {
+      setInterval(() => {
+        const TimeIntervalInDayloop = trackTimeInterval(deadLine, startDate); 
+        return showTimeGap(TimeIntervalInDayloop)
    }, UPDATE_TIME);
+    }
+   
     
     // first render without Interval
       showTimeGap(TimeIntervalInDay);
-      isMounted = false
-    return isMounted;
+      
+    return () => {isMounted = false};
   },[sDate, dLine])
 
   
