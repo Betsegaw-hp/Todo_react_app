@@ -6,6 +6,7 @@ const FaildTasks = () => {
     <>
       <div className="faild-tasks">
           <img src={error_btn} alt="faild tasks" />
+          <span className='list-counter'>0</span>
         </div>
     </>
   )

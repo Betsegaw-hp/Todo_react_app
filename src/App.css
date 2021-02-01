@@ -172,6 +172,18 @@ body::-webkit-scrollbar-thumb,
    margin: 0 1rem;
    cursor: pointer;
  }
+ .Dashboard .completed-tasks .list-counter {
+   font-size: 10px;
+   position: absolute;
+   transform: translateX(310%) translateY(-120%);
+   color: var(--light-blue)
+ }
+ .Dashboard .faild-tasks .list-counter {
+  font-size: 10px;
+  position: absolute;
+  transform: translateX(340%) translateY(-120%);
+  color: var(--red-light)
+ }
  #portal .completed-tasks-container { 
   min-width: 50vw;
   position: fixed;

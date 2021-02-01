@@ -35,10 +35,13 @@ const AddTaskContextProvider = (props) => {
     return setTasks(tasks.filter(task => task.id !== id))
   }
     console.table( completedTasks)
+  const removeCompletedTask = (id) => {
+    return setCompletedTasks(completedTasks.filter(task => task.id !== id))
+  }  
    
   
   return (
-    <TaskContext.Provider value={{tasks,completedTasks, addTask, editTask, removeTask, taskCompleted}}>
+    <TaskContext.Provider value={{tasks,completedTasks, addTask, editTask, removeTask, taskCompleted, removeCompletedTask}}>
       {props.children}
     </TaskContext.Provider>
   )
