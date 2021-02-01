@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { TaskContext } from '../../Contexts/addTaskContext';
-import CompletedTasks from './complete-faild-task/completed-tasks';
-import FaildTasks from './complete-faild-task/faild-tasks';
+import CompletedTasks from './D-portals/completed-tasks';
+import FaildTasks from './D-portals/faild-tasks';
 import FormCard from './FormCard';
 import ListCard from './ListCard';
 

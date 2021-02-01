@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import ReactDOM from 'react-dom';
-import { TaskContext } from '../../Contexts/addTaskContext';
+import { TaskContext } from '../../../Contexts/addTaskContext';
 
  const MODAL_STYLE = {
    position: 'fixed',

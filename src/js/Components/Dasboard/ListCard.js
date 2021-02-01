@@ -3,7 +3,7 @@ import complete_btn from '../../../media/add_task-black-24dp.svg';
 import delete_btn from '../../../media/delete-black-24dp.svg';
 import edit_btn from '../../../media/mode_edit-black-24dp.svg';
 import { TaskContext } from '../../Contexts/addTaskContext';
-import Modal from './Modal';
+import Modal from './D-portals/Modal';
 import trackTimeInterval from './timeTracker';
 
 const ListCard = (props) => {
