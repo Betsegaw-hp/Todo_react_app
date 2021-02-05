@@ -27,16 +27,20 @@ function CompletedTasksLists({tasks, modalOpen, onClose, removeTask})  {
      <>
      <div style={OVERLAY_SHADOW} onClick={onClose}></div>
      <div className="completed-tasks-container">
+       <h3 className="completed-task-title">Completed Tasks</h3>
       <ul className="completed-tasks-ul">
         {tasks && tasks.map(task=> (
           <li key={task.id}  id={task.id}      className="completed-task-list"
           ref={listElement}>
             <div className="task-card">
-              <h3>{task.title}</h3>
-              <p>{task.label}</p>
-              <span>{task.startDate} - {task.deadline}</span>
+              <h4 className="task-title">{task.title}</h4>
+              <p className="task-label">{task.label}</p>
+              <span className="task-date">{task.startDate} - {task.deadline}</span>
             </div>
-            <img src={remove_btn} alt="remove button" onClick={() => handleRemoveClick(task.id)}/>
+            <div className="remove-btn">
+              <img src={remove_btn} alt="remove button" 
+              onClick={() => handleRemoveClick(task.id)}/>
+            </div>
           </li>
         ))}
       </ul>

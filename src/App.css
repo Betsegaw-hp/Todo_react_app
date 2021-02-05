@@ -130,7 +130,8 @@ body::-webkit-scrollbar-thumb,
   overflow: auto;
 }
 .nav-list-item {
-  position: relative;
+  display:grid;
+  place-content: center;
   flex-shrink:1 ;
   width: 100%;
  padding: 1rem 2rem;
@@ -143,15 +144,7 @@ body::-webkit-scrollbar-thumb,
 .nav-list-item:last-child {
   margin-top: auto;
 }
-.nav-list-item:hover::before {
-  content:"";
-  position: absolute;
-  top:0;
-  left:0;
-  bottom:0;
-  right:0;
-  border-radius: 50%;
-  z-index: -1;
+.nav-list-item:hover {
   background: var(--nav-secondary) ;
   filter: grayscale(0%) opacity(1) ;
 }
@@ -215,34 +208,55 @@ body::-webkit-scrollbar-thumb,
   color: var(--red-light)
  }
  #portal .completed-tasks-container { 
+  padding:0 .5rem; 
   min-width: 50vw;
   position: fixed;
   top: 50%;
   left: 50%;
   transform:translate(-50%, -50%);
   z-index: 1000;
-  background: var(--background4);
+  background: var(--background-form);
   border-radius: .3rem;
   transition: var(--transition);
  }
-
+ #portal .completed-tasks-container .completed-task-title {
+   padding: 0 .5rem;
+   color: var(--light-blue);
+ }
+ #portal .completed-tasks-container .faild-task-title {
+  padding: 0 .5rem;
+  color: var(--red-light);
+ }
  #portal .completed-tasks-ul .completed-task-list {
    display: flex;
    justify-content: space-between;
+   padding: .3rem;
    cursor: pointer;
-   border-bottom: .1px solid grey;
+   border-radius: 10px;
+   background: var(--background1);
+   margin-bottom: .5rem;
  }
  #portal .completed-tasks-ul .completed-task-list div{
-  padding:.5rem;
+  padding:0 .5rem;
  }
- #portal .completed-tasks-ul .completed-task-list img {
-   opacity: 0;
+ #portal .completed-task-list .task-card .task-title,
+ #portal .completed-task-list .task-card .task-label {
+   margin: 0;
+ }
+ #portal .completed-task-list .task-card .task-label,
+ #portal .completed-task-list .task-card .task-date  {
+  color: #6c757d !important;
+  font-size: 15px;
+ }
+ #portal .completed-task-list .task-card .task-date {
+   margin-top: .5rem;
+ }
+ #portal .completed-tasks-ul .completed-task-list .remove-btn img {
    width: 10px;
    padding: 1rem;
  }
- #portal .completed-tasks-ul .completed-task-list img:hover {
-   opacity: 1;
-   background: var(--background3);
+ #portal .completed-tasks-ul .completed-task-list .remove-btn:hover {
+  background: var(--background2);
  }
  #portal .completed-tasks-container .emptyText {
    display: block;
@@ -558,6 +572,7 @@ padding: 1rem 4rem;
     overflow-x: hidden;
   }
   .nav-list-item {
+    display: block;
     padding: 1.5rem 2rem 1.5rem 5rem;
   }
   .nav-list-item:first-child {
@@ -624,17 +639,26 @@ for significantly small devices
     overflow-x: hidden;
   }
   .nav-list-item {
+    display: block;
     padding: 1.5rem 2rem 1.5rem 5rem;
-    flex: 1 1 1;
+  }
+  .nav-list-item .logo-text {
+    display: none;
+  }
+  .nav-list-item:first-child {
+    display: block;
+    margin-bottom:1.5rem;
+    background:#01070f ;
+    transition: var(--transition);
+  }
+  .navbar:hover .nav-list-item:first-child img {
+    animation: rotator  1.5s ease-in-out .2s;
+    filter: grayscale(0%) opacity(1);
   }
   .nav-list-item a {
     display: flex;
     align-items: center;
   }
-  .nav-list-item a .list-name {
-    padding-left: 1rem;
-  }
-   
   .listCard-continer {
     grid-template-columns: auto auto;
   }
