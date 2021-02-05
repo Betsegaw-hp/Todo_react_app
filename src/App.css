@@ -245,11 +245,13 @@ body::-webkit-scrollbar-thumb,
  }
  #portal .completed-task-list .task-card .task-label,
  #portal .completed-task-list .task-card .task-date  {
+  display: block;
   color: #6c757d !important;
   font-size: 15px;
  }
  #portal .completed-task-list .task-card .task-date {
    margin-top: .5rem;
+   font-size: 12px;
  }
  #portal .completed-tasks-ul .completed-task-list .remove-btn img {
    width: 10px;
