@@ -40,13 +40,15 @@ function CompletedTasksLists({tasks, modalOpen, onClose, removeTask})  {
           </li>
         ))}
       </ul>
-      {`${tasks}` === `${[]}` && <pre> Nothing here!</pre>}
+      {`${tasks}` === `${[]}` && 
+      <span className="emptyText"> Nothing here. <span>But you can make one!</span></span>}
      </div>
      </>,
     document.getElementById('portal')
      
    )
  }
+ 
  const CompletedTasks = () => {
    const [isOpen , setIsOpen] = useState(false);
    const { completedTasks, removeCompletedTask } = useContext(TaskContext)

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import analyticsIcon from '../../../media/analytics.svg';
 import dashboardIcon from '../../../media/dashborad.svg';
+import show_more_btn from '../../../media/more_horiz-black-24dp.svg';
 import notificationIcon from '../../../media/notification-bell.svg';
 import cogsIcon from '../../../media/setting.svg';
 import logoIcon from '../../../media/todo-app-logo.svg';
@@ -10,8 +11,20 @@ function Nav(props) {
   const {
     changeTab,
   } = props;
+
+
+  const navbar = useRef(null)
+
+  const handleClick = (e) => {
+    e.currentTarget.classList.toggle('show-more-btn-rotate')
+    navbar.current.classList.toggle('navbar-show')
+  }
+
+  
+  
   return(
-      <nav className="navbar"> 
+    <>
+        <nav className="navbar" ref={navbar}> 
           <ul className="nav-list">
             <li className="nav-list-item">
               <a href="#home">
@@ -56,8 +69,15 @@ function Nav(props) {
                 <span className="list-name">account</span>
               </a>
             </li>
-          </ul>
+          </ul> 
+
       </nav>
+          <div className="show-more-btn"
+              onClick={(e) => handleClick(e)}>
+            <img src={show_more_btn} alt="show more"/>
+          </div>
+    </>
+
   )
 }
 

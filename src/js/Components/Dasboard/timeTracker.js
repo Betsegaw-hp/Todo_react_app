@@ -6,7 +6,7 @@ const currentDate = () => {
   return today;
  }
 
- function trackTimeInterval(deadLine, startDate) { 
+ function trackTimeInterval(deadLine, startDate) {
     // One day Time in ms (milliseconds) 
     const one_day = 1000 * 60 * 60 * 24 ;
 
@@ -18,7 +18,7 @@ const currentDate = () => {
    
  
     console.log(deadLine, startDate)
-    if(Today > deadLine) {return  -1}
+    if(Today > deadLine) { return  -1}
       
 
   let TimeIntervalInmilli = deadLine - startDate;
