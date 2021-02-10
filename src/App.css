@@ -120,7 +120,7 @@ body::-webkit-scrollbar-thumb,
   position: fixed;
   bottom: 0;
   width: 100vw;
-  height: 4rem;
+  height: 3.5rem;
   background: var(--nav);
 }
 .nav-list {

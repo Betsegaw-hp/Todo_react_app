@@ -34,13 +34,13 @@ const FormCard = () => {
                    required/>
                   <span>Add a task</span><br></br>
 
-            <input type="text" 
-                    placeholder=""  
-                    className="label-input"
-                    value={label}
-                    onChange={e =>setLabel(e.target.value) }
-                     required/>
-                    <span>label</span><br></br>
+           <input type="text" 
+                  placeholder=""  
+                  className="label-input"
+                  value={label}
+                  onChange={e =>setLabel(e.target.value) }
+                  required/>
+            <span>label</span><br></br>
 
             <label htmlFor="start-date">Start-Date: </label>
             <input type="date" 
