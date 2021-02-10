@@ -3,11 +3,13 @@ import complete_btn from '../../../media/add_task-black-24dp.svg';
 import delete_btn from '../../../media/delete-black-24dp.svg';
 import edit_btn from '../../../media/mode_edit-black-24dp.svg';
 import { TaskContext } from '../../Contexts/addTaskContext';
+import { taskCompleted, taskFaild, taskRemoved } from '../../Reducers/actions';
 import Modal from './D-portals/Modal';
 import trackTimeInterval from './timeTracker';
 
 const ListCard = (props) => {
-  const {tasks, removeTask, taskCompleted, faildTask} = useContext(TaskContext);
+  // const {tasks, removeTask, taskCompleted, faildTask} = useContext(TaskContext);
+  const {tasks, dispatch, dispatchCompletion, dispatchFailure} = useContext(TaskContext);
 
   const {
     title,
@@ -22,14 +24,16 @@ const ListCard = (props) => {
   const showTimeGap = useCallback((day)=>{
     
       if( day < 0) {
-        faildTask(id)
+        // faildTask(id)
+        dispatchFailure(taskFaild(id, tasks))
+        dispatch(taskRemoved(id))
         console.log(day)
         return setTimeGap('Expired');
       }
       console.log(day)
       return setTimeGap(`${day !== 0 ? day + ' day left': 'less than a day'}`);
 
-  },[id, faildTask])
+  },[dispatch, dispatchFailure, id, tasks])
 
   useEffect(()=> {
     let startDate = new Date(sDate);
@@ -54,14 +58,17 @@ const ListCard = (props) => {
   },[sDate, dLine, id,tasks, showTimeGap])
 
   const handleRemoveClick = (e) => {
-    removeTask(id)
+    // removeTask(id)
+    dispatch(taskRemoved(id))
   }
   const handleEditClick = (e) => {
      setIsModalOpen(true);
   }
   const handleCompleteClick = (e) => {
     console.log('completed')
-    taskCompleted(id);
+    // taskCompleted(id);
+    dispatchCompletion(taskCompleted(id, tasks))
+    dispatch(taskRemoved(id))
   }
 
   return (

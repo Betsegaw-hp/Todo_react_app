@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import remove_btn from '../../../../media/cancel.svg';
 import complete_btn from '../../../../media/done_all-black-24dp.svg';
 import { TaskContext } from '../../../Contexts/addTaskContext';
+import { CompletedTaskRemoved } from '../../../Reducers/actions';
 
  const OVERLAY_SHADOW = {
    position: 'fixed',
@@ -19,7 +20,7 @@ function CompletedTasksLists({tasks, modalOpen, onClose, removeTask})  {
 
     const handleRemoveClick = (id) => {
       if(listElement)  {
-       removeTask(id);
+       removeTask(CompletedTaskRemoved(id));
       }
     }
    
@@ -29,7 +30,7 @@ function CompletedTasksLists({tasks, modalOpen, onClose, removeTask})  {
      <div className="completed-tasks-container">
        <h3 className="completed-task-title">Completed Tasks</h3>
       <ul className="completed-tasks-ul">
-        {tasks && tasks.map(task=> (
+        {tasks.length > 0 && tasks.map(task=> (
           <li key={task.id}  id={task.id}      className="completed-task-list"
           ref={listElement}>
             <div className="task-card">
@@ -55,7 +56,7 @@ function CompletedTasksLists({tasks, modalOpen, onClose, removeTask})  {
  
  const CompletedTasks = () => {
    const [isOpen , setIsOpen] = useState(false);
-   const { completedTasks, removeCompletedTask } = useContext(TaskContext)
+   const { completedTasks, dispatchCompletion } = useContext(TaskContext)
 
    const count = completedTasks.length;
 
@@ -67,7 +68,7 @@ function CompletedTasksLists({tasks, modalOpen, onClose, removeTask})  {
             <span className='list-counter'>{count}</span>
       </div>
       <CompletedTasksLists tasks={completedTasks}
-                           removeTask={removeCompletedTask}
+                           removeTask={dispatchCompletion}
                            modalOpen={isOpen}
                            onClose={(e) => setIsOpen(!isOpen)}/>
      

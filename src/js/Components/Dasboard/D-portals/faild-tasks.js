@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import error_btn from '../../../../media/assignment_late-black-24dp.svg';
 import remove_btn from '../../../../media/cancel.svg';
 import { TaskContext } from '../../../Contexts/addTaskContext';
+import { FaildTaskRemoved } from '../../../Reducers/actions';
 
 const OVERLAY_SHADOW = {
   position: 'fixed',
@@ -19,7 +20,7 @@ const FaildTasksLists = ({tasks, modalOpen, removeTask, onClose}) => {
 
   const handleRemoveClick = (id) => {
     if(listElement)  {
-     removeTask(id);
+     removeTask(FaildTaskRemoved(id));
     }
   }
 
@@ -54,7 +55,7 @@ const FaildTasksLists = ({tasks, modalOpen, removeTask, onClose}) => {
 
 const FaildTasks = () => {
   const [isOpen , setIsOpen] = useState(false);
-  const {faildTasks, removeFaildTask} = useContext(TaskContext);
+  const {faildTasks, dispatchFailure} = useContext(TaskContext);
 
   const count = faildTasks.length;
   return (
@@ -65,7 +66,7 @@ const FaildTasks = () => {
           <span className='list-counter'>{count}</span>
       </div>
       <FaildTasksLists tasks={faildTasks}
-                       removeTask={removeFaildTask}
+                       removeTask={dispatchFailure}
                        modalOpen={isOpen}
                        onClose={(e) => setIsOpen(!isOpen)}/>
     </>

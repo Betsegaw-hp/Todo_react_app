@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { TaskContext } from '../../Contexts/addTaskContext';
+import { taskAdded } from '../../Reducers/actions';
  
 
 
@@ -10,11 +11,13 @@ const FormCard = () => {
   const [sDate, setSdate] = useState('');
   const [dLine, setDline] = useState('');
 
-  const {addTask} = useContext(TaskContext);
+  // const {addTask} = useContext(TaskContext);
+  const { dispatch } = useContext(TaskContext);
 
   const HandleSubmit = (e) => {
     e.preventDefault();
-    addTask(title,label,dLine,sDate);
+    // addTask(title,label,dLine,sDate);
+    dispatch(taskAdded(title,label,dLine,sDate))
     clearState();
   }
   const clearState = () => {

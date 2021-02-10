@@ -1,13 +1,20 @@
-import React, { createContext, useState } from 'react';
-import uuid from 'uuid/dist/v4';
+import React, { createContext, useReducer } from 'react';
+import TaskReducer from '../Reducers/TaskReducer';
+
 export const TaskContext = createContext();
 
 const AddTaskContextProvider = (props) => {
+  const [tasks, dispatch] = useReducer(TaskReducer, []);
+  const [completedTasks, dispatchCompletion] = useReducer(TaskReducer, []);
+  const [faildTasks, dispatchFailure] = useReducer(TaskReducer, []);
+
   // core state
+/*
   const [tasks , setTasks] = useState([]);
   // additional states
   const [completedTasks, setCompletedTasks] = useState([]);
   const [faildTasks, setFaildTasks] = useState([]);
+  
   
 //  main functions
   const addTask = (title, label,deadline, startDate) => {
@@ -57,11 +64,12 @@ const AddTaskContextProvider = (props) => {
     // rid off it once for all
     return setFaildTasks(faildTasks.filter(task => task.id !== id))
   }
-   
+   */
   
   return (
-    <TaskContext.Provider value={{tasks,completedTasks,
-    faildTasks, addTask, editTask, removeTask, taskCompleted, removeCompletedTask, faildTask, removeFaildTask}}>
+    // <TaskContext.Provider value={{tasks,completedTasks,
+    // faildTasks, addTask, editTask, removeTask, taskCompleted, removeCompletedTask, faildTask, removeFaildTask}}>
+    <TaskContext.Provider value={{tasks,completedTasks,faildTasks,dispatch, dispatchCompletion, dispatchFailure}}>
       {props.children}
     </TaskContext.Provider>
   )

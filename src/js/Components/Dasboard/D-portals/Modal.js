@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { TaskContext } from '../../../Contexts/addTaskContext';
+import { taskEdited } from '../../../Reducers/actions';
 
  const MODAL_STYLE = {
    position: 'fixed',
@@ -26,7 +27,7 @@ import { TaskContext } from '../../../Contexts/addTaskContext';
            id,
            sDate, dLine
          } = props;
-   const {  editTask } =  useContext(TaskContext);
+   const {  dispatch } =  useContext(TaskContext);
 
    const [editedTitle, setEditedTitle] = useState(title);
    const [editedLabel, setEditedLabel] = useState(label);
@@ -35,7 +36,8 @@ import { TaskContext } from '../../../Contexts/addTaskContext';
     
   const HandleEditSubmit = (e) => {
     e.preventDefault();
-    editTask(id,editedTitle,editedLabel,editedDline,editedSdate);
+    // editTask(id,editedTitle,editedLabel,editedDline,editedSdate);
+    dispatch(taskEdited(id,editedTitle,editedLabel,editedDline,editedSdate))
     onClose();
    } 
    
