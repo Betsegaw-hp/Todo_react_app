@@ -8,7 +8,6 @@ import Modal from './D-portals/Modal';
 import trackTimeInterval from './timeTracker';
 
 const ListCard = (props) => {
-  // const {tasks, removeTask, taskCompleted, faildTask} = useContext(TaskContext);
   const {tasks, dispatch, dispatchCompletion, dispatchFailure} = useContext(TaskContext);
 
   const {
@@ -24,7 +23,7 @@ const ListCard = (props) => {
   const showTimeGap = useCallback((day)=>{
     
       if( day < 0) {
-        // faildTask(id)
+  
         dispatchFailure(taskFaild(id, tasks))
         dispatch(taskRemoved(id))
         console.log(day)
@@ -43,22 +42,20 @@ const ListCard = (props) => {
     const UPDATE_TIME = 300000 ; // 5 min
     const TimeIntervalInDay = trackTimeInterval(deadLine, startDate);
     
-    const statusCheck = () => {
+    const statusCheck = setInterval(()=> {
         const TimeIntervalInDayloop = trackTimeInterval(deadLine, startDate); 
         return showTimeGap(TimeIntervalInDayloop)
-   }
+   }, UPDATE_TIME) 
 
-    if(`${tasks}` !== `${[]}`) {
-      setInterval(statusCheck, UPDATE_TIME)
-    } else clearInterval(statusCheck)
-   
     
     // first render without Interval
-    return showTimeGap(TimeIntervalInDay);
-  },[sDate, dLine, id,tasks, showTimeGap])
+     showTimeGap(TimeIntervalInDay)
+
+    //  clear the lifecycle( componentwillUnmount)
+     return () => clearInterval(statusCheck)
+  },[sDate, dLine, showTimeGap])
 
   const handleRemoveClick = (e) => {
-    // removeTask(id)
     dispatch(taskRemoved(id))
   }
   const handleEditClick = (e) => {
@@ -66,7 +63,6 @@ const ListCard = (props) => {
   }
   const handleCompleteClick = (e) => {
     console.log('completed')
-    // taskCompleted(id);
     dispatchCompletion(taskCompleted(id, tasks))
     dispatch(taskRemoved(id))
   }
