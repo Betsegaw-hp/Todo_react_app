@@ -36,7 +36,6 @@ import { taskEdited } from '../../../Reducers/actions';
     
   const HandleEditSubmit = (e) => {
     e.preventDefault();
-    // editTask(id,editedTitle,editedLabel,editedDline,editedSdate);
     dispatch(taskEdited(id,editedTitle,editedLabel,editedDline,editedSdate))
     onClose();
    } 

@@ -11,12 +11,10 @@ const FormCard = () => {
   const [sDate, setSdate] = useState('');
   const [dLine, setDline] = useState('');
 
-  // const {addTask} = useContext(TaskContext);
   const { dispatch } = useContext(TaskContext);
 
   const HandleSubmit = (e) => {
     e.preventDefault();
-    // addTask(title,label,dLine,sDate);
     dispatch(taskAdded(title,label,dLine,sDate))
     clearState();
   }
