@@ -1,13 +1,12 @@
 import uuid from 'uuid/dist/v4';
 import * as actionType from './actionTypes';
 
-// DRY detected Optimization needed
+// DRY detected, Optimization needed
 
 const taskReducer = (state, action) => {
   switch (action.type) {
       // call from dispatch
     case actionType.TASK_ADDED: // (only valid on dispatch)
-    console.log(state)
       return [...state, { 
          title: action.payload.title,
          label: action.payload.label,
