@@ -79,7 +79,7 @@ const ListCard = (props) => {
           
         <div className="list-card-footer">
           <div className="show-date">
-            <p> <span className="start-date">{sDate}</span> - <span className="dead-date">{dLine}</span> </p> 
+            <p> <span className="start-date">{sDate}</span>{'->'} <span className="dead-date">{dLine}</span> </p> 
           </div>
           <div className="btns">
             <div className="edit-btn warning-btn"

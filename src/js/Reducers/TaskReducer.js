@@ -42,8 +42,8 @@ const taskReducer = (state, action) => {
 
       // call from dispatchFailure
     case actionType.TASK_FAILD: { // (only valid on dispatchFailure)
-      const filteredTask =(action.payload.tasks).find(task => task.id === action.payload.id)
-      return [...state, filteredTask]
+      const filtered_F_Task =(action.payload.tasks).find(task => task.id === action.payload.id)
+      return [...state, filtered_F_Task]
     }
     case actionType.F_T_REMOVED: // (only valid on dispatchFailure)
       return state.filter(task => task.id !== action.payload.id)

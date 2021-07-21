@@ -31,8 +31,9 @@ const FaildTasksLists = ({tasks, modalOpen, removeTask, onClose}) => {
        <h3 className="faild-task-title">Faild Tasks</h3>
       <ul className="completed-tasks-ul">
         {tasks && tasks.map(task=> (
-          <li key={task.id}  id={task.id}      className="completed-task-list"
-          ref={listElement}>
+          <li key={task.id}  id={task.id} 
+              className="completed-task-list faild-task-list"
+              ref={listElement}>
             <div className="task-card">
               <h3 className="task-title">{task.title}</h3>
               <p className="task-label">{task.label}</p>

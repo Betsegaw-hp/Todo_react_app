@@ -4,6 +4,7 @@ import Account from './Components//Account/Account';
 import Dashboard from './Components/Dasboard/Dashboard';
 import Nav from './Components/Nav/Nav';
 import Notification from './Components/Notification/Notification';
+import PopUp from './Components/Notification/PopUp';
 import Setting from './Components/Setting/Setting';
 import Statics from './Components/statics/Statics';
 import AddTaskContextProvider from './Contexts/addTaskContext';
@@ -12,6 +13,7 @@ import AddTaskContextProvider from './Contexts/addTaskContext';
 function App() {
 
   const [navStatus, setNavStatus] = useState('Dashboard');
+  const [isPoped, setIsPoped] = useState(false)
   
   let currentTab; 
   
@@ -52,8 +54,10 @@ function App() {
     <AddTaskContextProvider>
       {currentTab}
    <Nav changeTab={changeTab} />
+   <PopUp data={'...'}
+          isPoped={isPoped}
+          onClose={() => setIsPoped(false)}/>
     </AddTaskContextProvider>
-   
   );
 }
 
