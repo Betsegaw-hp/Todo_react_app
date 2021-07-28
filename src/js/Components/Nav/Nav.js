@@ -1,11 +1,11 @@
 import React, { useRef } from 'react';
-import analyticsIcon from '../../../media/analytics.svg';
-import dashboardIcon from '../../../media/dashborad.svg';
+import dashboardIcon from '../../../media/dashboard_black_24dp.svg';
 import show_more_btn from '../../../media/more_horiz-black-24dp.svg';
-import notificationIcon from '../../../media/notification-bell.svg';
-import cogsIcon from '../../../media/setting.svg';
+import notificationIcon from '../../../media/notifications_black_24dp.svg';
+import userIcon from '../../../media/person_black_24dp.svg';
+import cogsIcon from '../../../media/settings_black_24dp.svg';
 import logoIcon from '../../../media/todo-app-logo.svg';
-import userIcon from '../../../media/user.svg';
+import analyticsIcon from '../../../media/trending_up_black_24dp.svg';
 
 function Nav(props) {
   const {
