@@ -59,7 +59,8 @@ const FormCard = () => {
                    onChange={e =>setDline(e.target.value) } 
                    required/><br></br>
 
-            <input type="submit" 
+            <input type="submit"
+                   value="Add" 
                    className="add-form success-btn" />  
           </form>
     </div>
