@@ -15,7 +15,7 @@ const MODAL_STYLE = {
 const PopUp = (props) => {
   const {
     isPoped,
-    data,
+    // data,
     onClose
   } = props;
 
