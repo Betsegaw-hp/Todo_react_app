@@ -1,7 +1,7 @@
 import React, { useRef, useState} from 'react';
 
 function Setting() {
-  const [switchState, setSwitchState] = useState(false)
+  const [switchState, setSwitchState] = useState(localStorage.getItem("darkMode"))
 
   const switcher = useRef(null);
   
@@ -9,7 +9,11 @@ function Setting() {
     switcher.current.classList.toggle("switch-slide")
     if(switcher.current.classList.contains("switch-slide")) {
       setSwitchState(true)
-    } else setSwitchState(false)
+      localStorage.setItem("darkMode", true)
+    } else { 
+      setSwitchState(false)
+      localStorage.setItem("darkMode", false)
+    } 
   }
  
   return (

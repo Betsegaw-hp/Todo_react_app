@@ -435,6 +435,7 @@ body::-webkit-scrollbar-thumb,
   font-size: small;
   top: 1rem;
   color: #6c757d !important;
+  padding: .7rem 0
  }
  .list-card .list-card-footer .btns  {
    display: flex;

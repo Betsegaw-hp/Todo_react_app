@@ -65,19 +65,22 @@ const AddTaskContextProvider = (props) => {
     }
 
     let objectStore = tx.objectStore(storeName), oSRequest;
-    //  clear the store
+    if(Item.length > 0){
+      //  clear the store
     let oSclearReq = objectStore.clear();
        oSclearReq.onsuccess = () => {
          console.log('store cleared')
        }
-   Item.length > 0 && Item.forEach(task => {
+     Item.forEach(task => {
        oSRequest = objectStore.put(task);
       oSRequest.onsuccess = e => {
       console.log(task.id, 'added successfuly')
     }
     });
+    }
+    
   }
-  //  fix area
+  //  fix nedded
   // const readDB = (storeName)  => {
   //   return  new Promise((resolve, reject ) => {
   //     let tx = db.transaction(storeName, 'readonly');
