@@ -30,13 +30,13 @@
   --transition: all .6s ease-out ;
 }
 
-::after,
+/* ::after,
 ::before,
 *,** {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 ul, li {
   margin: 0;
   padding: 0;
@@ -741,6 +741,9 @@ for significantly small devices
   }
  .show-more-btn {
     display: block;
+  }
+  .list-card-footer {
+    flex-direction: column;
   }
 }
 
