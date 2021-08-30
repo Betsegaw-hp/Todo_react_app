@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Todo_react_app/static/css/main.491ebb08.chunk.css",
-    "main.js": "/Todo_react_app/static/js/main.f499347b.chunk.js",
-    "main.js.map": "/Todo_react_app/static/js/main.f499347b.chunk.js.map",
+    "main.css": "/Todo_react_app/static/css/main.0175909b.chunk.css",
+    "main.js": "/Todo_react_app/static/js/main.bf595c9f.chunk.js",
+    "main.js.map": "/Todo_react_app/static/js/main.bf595c9f.chunk.js.map",
     "runtime-main.js": "/Todo_react_app/static/js/runtime-main.1b81292a.js",
     "runtime-main.js.map": "/Todo_react_app/static/js/runtime-main.1b81292a.js.map",
     "static/js/2.7da7a2b4.chunk.js": "/Todo_react_app/static/js/2.7da7a2b4.chunk.js",
     "static/js/2.7da7a2b4.chunk.js.map": "/Todo_react_app/static/js/2.7da7a2b4.chunk.js.map",
     "index.html": "/Todo_react_app/index.html",
-    "static/css/main.491ebb08.chunk.css.map": "/Todo_react_app/static/css/main.491ebb08.chunk.css.map",
+    "static/css/main.0175909b.chunk.css.map": "/Todo_react_app/static/css/main.0175909b.chunk.css.map",
     "static/js/2.7da7a2b4.chunk.js.LICENSE.txt": "/Todo_react_app/static/js/2.7da7a2b4.chunk.js.LICENSE.txt",
     "static/media/add_task-black-24dp.f32aa408.svg": "/Todo_react_app/static/media/add_task-black-24dp.f32aa408.svg",
     "static/media/assignment_late-black-24dp.9589897b.svg": "/Todo_react_app/static/media/assignment_late-black-24dp.9589897b.svg",
@@ -16,8 +16,8 @@
     "static/media/dashboard_black_24dp.f6a65e15.svg": "/Todo_react_app/static/media/dashboard_black_24dp.f6a65e15.svg",
     "static/media/delete-black-24dp.6d6a8639.svg": "/Todo_react_app/static/media/delete-black-24dp.6d6a8639.svg",
     "static/media/done_all-black-24dp.dc6fc541.svg": "/Todo_react_app/static/media/done_all-black-24dp.dc6fc541.svg",
+    "static/media/menu_open_black_24dp.e289d488.svg": "/Todo_react_app/static/media/menu_open_black_24dp.e289d488.svg",
     "static/media/mode_edit-black-24dp.50c765ab.svg": "/Todo_react_app/static/media/mode_edit-black-24dp.50c765ab.svg",
-    "static/media/more_horiz-black-24dp.d9c313b0.svg": "/Todo_react_app/static/media/more_horiz-black-24dp.d9c313b0.svg",
     "static/media/notifications_black_24dp.86d26440.svg": "/Todo_react_app/static/media/notifications_black_24dp.86d26440.svg",
     "static/media/person_black_24dp.eba1f953.svg": "/Todo_react_app/static/media/person_black_24dp.eba1f953.svg",
     "static/media/settings_black_24dp.9764146e.svg": "/Todo_react_app/static/media/settings_black_24dp.9764146e.svg",
@@ -27,7 +27,7 @@
   "entrypoints": [
     "static/js/runtime-main.1b81292a.js",
     "static/js/2.7da7a2b4.chunk.js",
-    "static/css/main.491ebb08.chunk.css",
-    "static/js/main.f499347b.chunk.js"
+    "static/css/main.0175909b.chunk.css",
+    "static/js/main.bf595c9f.chunk.js"
   ]
 }
