@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import dashboardIcon from '../../../media/dashboard_black_24dp.svg';
-import show_more_btn from '../../../media/more_horiz-black-24dp.svg';
+import show_more_btn from '../../../media/menu_open_black_24dp.svg';
 import notificationIcon from '../../../media/notifications_black_24dp.svg';
 import userIcon from '../../../media/person_black_24dp.svg';
 import cogsIcon from '../../../media/settings_black_24dp.svg';
