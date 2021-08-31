@@ -1,4 +1,5 @@
 {
+  "lang": "en",
   "short_name": "To Do App",
   "name": "Advanced To Do App",
   "start_url": "./?home=true",
@@ -17,11 +18,6 @@
       "purpose": "maskable any"
     }
   ],
-  "developer": {
-    "name": "Betsegaw Tesfaye",
-    "url": "https://github.com/Betsegaw-hp"
-  },
-  
   "display": "fullscreen",
   "theme_color": "#000000",
   "background_color": "#ffffff",
