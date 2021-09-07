@@ -2,9 +2,48 @@ import React, { createContext, useEffect, useReducer } from 'react';
 import TaskReducer from '../Reducers/TaskReducer';
 
 export const TaskContext = createContext();
+let db, DB_version = 1;
+
+function intArr() {
+  let label = 'Tasks'
+  const DB = indexedDB.open(`HAPPY-TODO-App`, DB_version)
+  DB.onupgradeneeded = (e) => {
+    db = e.target.result
+
+    const DBtasks = db.createObjectStore('Tasks', {keyPath: 'id'})
+    const DBcompletedTasks = db.createObjectStore('Completed_tasks', {keyPath: 'id'})
+    const DBfaildTasks = db.createObjectStore('Faild_tasks', {keyPath: 'id'})
+  
+    DBtasks.createIndex('id', 'id', { unique : true})
+    DBtasks.createIndex('title', 'title', { unique : false})
+    DBcompletedTasks.createIndex('id', 'id', { unique : true})
+    DBcompletedTasks.createIndex('title', 'title', { unique : false})
+    DBfaildTasks.createIndex('id', 'id', { unique : false})
+    DBfaildTasks.createIndex('title', 'title', { unique : false})
+  }
+  let result = undefined;
+  DB.onsuccess = () => {
+    db = DB.result
+    console.log('succes reading' , label)
+
+    const tx = db.transaction(label)
+    const objectStore = tx.objectStore(label)
+    const req = objectStore.getAll()
+    req.onsuccess = (e) => {
+      console.log(req.result)
+      result = req.result 
+    } 
+  }
+  return result ? result : []
+}
+// const intArr = () => {
+//   console.log('this is the initializer')
+//   read('Tasks')
+//   return []
+// }
 
 const AddTaskContextProvider = (props) => {
-  const [tasks, dispatch] = useReducer(TaskReducer, []);
+  const [tasks, dispatch] = useReducer(TaskReducer, [], intArr);
   const [completedTasks, dispatchCompletion] = useReducer(TaskReducer, []);
   const [faildTasks, dispatchFailure] = useReducer(TaskReducer, []);
   
@@ -15,7 +54,6 @@ const AddTaskContextProvider = (props) => {
 
 
 
- let db, DB_version = 1;
  const DBopenReq = indexedDB.open(`HAPPY-TODO-App`, DB_version)
   DBopenReq.onerror = (e) => {
         //  on error

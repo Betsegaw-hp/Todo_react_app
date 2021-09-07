@@ -43,7 +43,7 @@ const FormCard = () => {
                   required/>
             <span>label</span><br></br>
 
-            <label htmlFor="start-date">Start-Date: </label>
+            <label htmlFor="start-date">Start Date: </label>
             <input type="date" 
                    id="start-date" 
                    className="start-date"
@@ -51,7 +51,7 @@ const FormCard = () => {
                    onChange={e => setSdate(e.target.value)} 
                    required/><br></br>
 
-            <label htmlFor="dead-line">Dead-line: </label>
+            <label htmlFor="dead-line">Dead Line: </label>
             <input type="date"
                    id="dead-line"
                    className="dead-line"
