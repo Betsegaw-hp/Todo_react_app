@@ -1,0 +1,40 @@
+.body {
+    background: #222222;
+    color: #fff !important;
+}
+.Dashboard nav {
+    background: #121212;
+}
+.form-card {
+    background: #121212;
+}
+.label-input {
+    background: #2f2f2f5e;
+    color: #fff;
+}
+.title-input {
+    background: #2f2f2f5e;
+    color: #fff;
+}
+.start-date {
+    color: white;
+    background: #2f2f2f5e;
+}
+.dead-line {
+    color: white;
+    background: #2f2f2f5e;
+}
+.list-card {
+    background: #121212;
+    box-shadow: 0 11px 25px 2px #141414;
+}
+.navbar {
+    background: #121212;
+}
+.completed-tasks-container {
+    background: #121212;
+    color: #fff;
+}
+.completed-task-list {
+    background: #222222;
+}
