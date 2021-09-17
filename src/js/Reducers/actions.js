@@ -1,7 +1,8 @@
 import * as actionType from './actionTypes';
+import uuid from 'uuid/dist/v4';
 
 
-export const taskAdded = (title, label,deadline, startDate,id) => ({
+export const taskAdded = (title, label,deadline, startDate,id = uuid()) => ({
   type: actionType.TASK_ADDED,
   payload: {title, label,deadline, startDate, id}
 })
