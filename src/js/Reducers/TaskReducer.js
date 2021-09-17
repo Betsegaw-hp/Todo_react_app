@@ -1,4 +1,8 @@
-import uuid from 'uuid/dist/v4';
+// attention bug // reproduce the bug
+// run from dev env then make change(which will rerender the DOM)
+// then save
+
+// import uuid from 'uuid/dist/v4';
 import * as actionType from './actionTypes';
 
 // DRY detected, Optimization needed
@@ -11,7 +15,8 @@ const taskReducer = (state, action) => {
          title: action.payload.title,
          label: action.payload.label,
          deadline: action.payload.deadline,
-         startDate: action.payload.startDate, id: uuid()}]
+         startDate: action.payload.startDate, 
+         id: action.payload.id}]
 
     case actionType.TASK_EDITED: //  (only valid on dispatch)
       const editedTasks = state.map((task, i) => {
@@ -20,7 +25,8 @@ const taskReducer = (state, action) => {
             title: action.payload.title,
             label: action.payload.label,
             deadline: action.payload.deadline,
-            startDate: action.payload.startDate, id: uuid()}
+            startDate: action.payload.startDate,
+            id: action.payload.id}
       }
       return task
     })

@@ -94,6 +94,7 @@ body::-webkit-scrollbar-thumb,
    border-radius: .5rem;
    cursor: pointer;
    box-shadow: var(--shadow0);
+   outline: none;
  }
  .success-btn {
   background: var(--light-blue) ;
