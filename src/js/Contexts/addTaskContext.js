@@ -1,83 +1,56 @@
 import React, { createContext, useEffect, useReducer } from 'react';
-import {  taskAdded, taskCompleted, taskFaild } from '../Reducers/actions';
 import TaskReducer from '../Reducers/TaskReducer';
 
 export const TaskContext = createContext();
 let db, DB_version = 1;
 
-function intArr(label) {
-  return new Promise((resolve, reject) => {
-    const DB = indexedDB.open(`HAPPY-TODO-App`, DB_version)
-    DB.onupgradeneeded = (e) => {
-      db = e.target.result
+function intArr() {
+  let label = 'Tasks'
+  const DB = indexedDB.open(`HAPPY-TODO-App`, DB_version)
+  DB.onupgradeneeded = (e) => {
+    db = e.target.result
+
+    const DBtasks = db.createObjectStore('Tasks', {keyPath: 'id'})
+    const DBcompletedTasks = db.createObjectStore('Completed_tasks', {keyPath: 'id'})
+    const DBfaildTasks = db.createObjectStore('Faild_tasks', {keyPath: 'id'})
   
-      const DBtasks = db.createObjectStore('Tasks', {keyPath: 'id'})
-      const DBcompletedTasks = db.createObjectStore('Completed_tasks', {keyPath: 'id'})
-      const DBfaildTasks = db.createObjectStore('Faild_tasks', {keyPath: 'id'})
-    
-      DBtasks.createIndex('id', 'id', { unique : true})
-      DBtasks.createIndex('title', 'title', { unique : false})
-      DBcompletedTasks.createIndex('id', 'id', { unique : true})
-      DBcompletedTasks.createIndex('title', 'title', { unique : false})
-      DBfaildTasks.createIndex('id', 'id', { unique : false})
-      DBfaildTasks.createIndex('title', 'title', { unique : false})
-    }
-    DB.onsuccess = () => {
-      db = DB.result
-      console.log('succes reading' , label)
-  
-      const tx = db.transaction(label)
-      const objectStore = tx.objectStore(label)
-      const req = objectStore.getAll()
-      req.onsuccess = (e) => {
-        // console.log(req.result)
-        resolve(req.result) 
-      } 
-    }
-    DB.onerror = (e) => {
-      db = e.target.result;
-      reject(db)
-    }
-  })
+    DBtasks.createIndex('id', 'id', { unique : true})
+    DBtasks.createIndex('title', 'title', { unique : false})
+    DBcompletedTasks.createIndex('id', 'id', { unique : true})
+    DBcompletedTasks.createIndex('title', 'title', { unique : false})
+    DBfaildTasks.createIndex('id', 'id', { unique : false})
+    DBfaildTasks.createIndex('title', 'title', { unique : false})
+  }
+  let result = undefined;
+  DB.onsuccess = () => {
+    db = DB.result
+    console.log('succes reading' , label)
+
+    const tx = db.transaction(label)
+    const objectStore = tx.objectStore(label)
+    const req = objectStore.getAll()
+    req.onsuccess = (e) => {
+      console.log(req.result)
+      result = req.result 
+    } 
+  }
+  return result ? result : []
 }
+// const intArr = () => {
+//   console.log('this is the initializer')
+//   read('Tasks')
+//   return []
+// }
 
 const AddTaskContextProvider = (props) => {
-  const [tasks, dispatch] = useReducer(TaskReducer, []);
+  const [tasks, dispatch] = useReducer(TaskReducer, [], intArr);
   const [completedTasks, dispatchCompletion] = useReducer(TaskReducer, []);
   const [faildTasks, dispatchFailure] = useReducer(TaskReducer, []);
-
+  
 
   useEffect(()=> {
-    // Works but unstable // needs attention
-    ['Tasks', 'Completed_tasks', 'Faild_tasks'].forEach((item, i) => {
-      intArr(item)
-      .then(result =>{
-         switch (i) {
-           case 0:
-             result.forEach(task => {
-                dispatch(taskAdded( task.title, task.label,
-                                    task.deadline, task.startDate,
-                                    task.id))
-             })
-          
-             break;
-           case 1:
-             result.forEach(task => {
-               dispatchCompletion(taskCompleted( task.id,result))
-             })
-             break;
-           case 2:
-             result.forEach(task => {
-               dispatchFailure(taskFaild(task.id,result))
-             })
-             break;
-           default:
-             break;
-         }
-        })
-      .catch(error => console.error(error))
-    })
-  },[]) 
+  
+  },[tasks, completedTasks, faildTasks]) 
 
 
 
@@ -116,6 +89,7 @@ const AddTaskContextProvider = (props) => {
     addToDB('Tasks', tasks)
     addToDB('Completed_tasks', completedTasks)
     addToDB('Faild_tasks', faildTasks)
+    // readDB('Tasks')
   }
 
   function addToDB(storeName , Item ) {
@@ -144,6 +118,34 @@ const AddTaskContextProvider = (props) => {
     }
     
   }
+  //  fix nedded
+  // const readDB = (storeName)  => {
+  //   return  new Promise((resolve, reject ) => {
+  //     let tx = db.transaction(storeName, 'readonly');
+  
+  //     tx.oncomplete = e => {
+  //       console.log('tx completed', tx)
+  //     }
+  //     tx.onerror = e => {
+  //       console.log('tx on error', tx)
+  //     }
+  
+  //     let objectStore = tx.objectStore(storeName);
+  //     let  getStoreReq =  objectStore.getAll();
+  //     if ( getStoreReq.onsuccess !== null) {
+  //        getStoreReq.onsuccess =  e => {
+  //         let req = getStoreReq.result;
+  //         console.info(storeName, 'readed successfully')
+  //         resolve(req)
+  //       }
+  //     getStoreReq.onerror = e => {
+  //     console.warn(e, 'error occured when req' )
+  //      }
+  //     } else {
+  //       reject()
+  //     }
+  //   })   
+  // }
 
    
   return (
