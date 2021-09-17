@@ -1,85 +1,65 @@
-let db;
-const PREFIX = 'HAPPY-'
+// //  GLOBALS
+// const PREFIX = 'HAPPY-'
+// let db, DB_version = 1;
 
-// window.addEventListener('load', createDB)
-export function createDB() {
+// window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+  
+// window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
 
-  this.open = () => {
-    const dbOpenRequest = indexedDB.open(`${PREFIX}TODO-App`, 1)
+// window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
 
-    // onSuccess
-    dbOpenRequest.onsuccess = e => {
-      alert(`success called `);
+// if(!window.indexedDB) { return console.log('indexedDB not supported')}
+
+// class DB {
+//   constructor(DB_name, DB_version) {
+//     this.DB_name = DB_name
+//     this.DB_version = DB_version
+//   }
+//   get open() {
+//     return this.DB_open()
+//   }
+//   DB_open() {
+//     return new Promise(
+//       (resolve, reject) => {
+//         const DBopenReq = window.indexedDB.open(DB_name, DB_version)
+//         DBopenReq.onerror = (e) => {
+//               //  on error
+//               db = e.target.result;
+              
+//               reject(db)
+//             }
+//         DBopenReq.onupgradeneeded = (e) => {
+//           // on upgradeneeded
+//           db = e.target.result;
+//           db.onerror = function(event) {
+//             alert(`Error loading database: ${event.target.error}`);
+//             reject(event)
+//         }
+          
+//         // create objecetStore 
       
-      db = dbOpenRequest.result;
-      this.read()
-    }
-    // onupgradeneeded
-    dbOpenRequest.onupgradeneeded = e => {
-      alert('upgradeNeeded called')
-       db = e.target.result;
-  
-        db.onerror = function(event) {
-          alert(`Error loading database: ${event.target.error}`);
-      }  
-      // create objecetStore 
-  
-    const tasks = db.createObjectStore('Tasks', {keyPath: 'id'})
-    const completedTasks = db.createObjectStore('Completed_tasks', {keyPath: 'id'})
-    const faildTasks = db.createObjectStore('Faild_tasks', {keyPath: 'id'})
-  
-    tasks.createIndex('id', 'id', { unique : true})
-    tasks.createIndex('title', 'title', { unique : false})
-    completedTasks.createIndex('id', 'id', { unique : true})
-    completedTasks.createIndex('title', 'title', { unique : false})
-    faildTasks.createIndex('id', 'id', { unique : false})
-    faildTasks.createIndex('title', 'title', { unique : false})
-    console.log('obJect Store created')
-    }
-    dbOpenRequest.onerror = e => {
-      alert(`Error: ${e.target.error}`)
-    }
-  }
-
-  this.read = (objectStoreName) => {
-    let transaction = db.transaction(objectStoreName, 'readonly');
-    let objectStore = transaction.objectStore(objectStoreName);
-  
+//         const DBtasks = db.createObjectStore('Tasks', {keyPath: 'id'})
+//         const DBcompletedTasks = db.createObjectStore('Completed_tasks', {keyPath: 'id'})
+//         const DBfaildTasks = db.createObjectStore('Faild_tasks', {keyPath: 'id'})
       
-    let getRequest = objectStore.getAll()
-    getRequest.onsuccess = e => {
-      const result = e.target.result;
-      console.log(result)
-      return result;
-    }
-  }
-  //  add Item
- this.add = (objectStoreName, Item) => {
-  const transaction= db.transaction([objectStoreName], 'readwrite')
- 
+//         DBtasks.createIndex('id', 'id', { unique : true})
+//         DBtasks.createIndex('title', 'title', { unique : false})
+//         DBcompletedTasks.createIndex('id', 'id', { unique : true})
+//         DBcompletedTasks.createIndex('title', 'title', { unique : false})
+//         DBfaildTasks.createIndex('id', 'id', { unique : false})
+//         DBfaildTasks.createIndex('title', 'title', { unique : false})
+//         console.log('obJect Store created')
+//       } 
+//         DBopenReq.onsuccess = e => {
+//           db = DBopenReq.result;
+//           console.log('success', db)
+      
+//           // addToDB('Tasks', tasks)
+//           // addToDB('Completed_tasks', completedTasks)
+//           // addToDB('Faild_tasks', faildTasks)
+//         }
+//       }
+//     );
+//   };
 
-  transaction.oncomplete = e => {
-    console.log('transaction completed')
-  }
-  transaction.onerror = function() {
-    console.error('Transaction not opened due to error: ' + transaction.error);
-   };
- 
-    // call an object store that's already been added to the database
-    let objectStore;
-    Item.forEach(item => {
-      objectStore = transaction.objectStore(objectStoreName).add(item);
-    });
-
-    // Make a request to add our newItem object to the object store
-    objectStore.onsuccess = function(event) {
-
-      // report the success of our request
-      // (to detect whether it has been succesfully
-      // added to the database, you'd look at transaction.oncomplete)
-      console.info('Request successful');
-    }
- }
- }
- const CreateDB = new createDB()
- export default CreateDB;
+// }
