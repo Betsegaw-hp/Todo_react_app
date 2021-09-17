@@ -8,7 +8,7 @@ import MsgHolder from './MsgHolder';
 
 function Dashboard() {
   const { tasks } = useContext(TaskContext);
-  const [showTemplete, setShowTemplete] = useState(false)
+  const [showTemplete, setShowTemplete] = useState(tasks.length > 0 ? true : false)
 
   function handleClick() {
     setShowTemplete(true)
