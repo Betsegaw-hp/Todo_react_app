@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/Todo_react_app/static/css/main.b22d30f8.chunk.css",
-    "main.js": "/Todo_react_app/static/js/main.1d3c4ecd.chunk.js",
-    "main.js.map": "/Todo_react_app/static/js/main.1d3c4ecd.chunk.js.map",
-    "runtime-main.js": "/Todo_react_app/static/js/runtime-main.1b81292a.js",
-    "runtime-main.js.map": "/Todo_react_app/static/js/runtime-main.1b81292a.js.map",
-    "static/js/2.7da7a2b4.chunk.js": "/Todo_react_app/static/js/2.7da7a2b4.chunk.js",
-    "static/js/2.7da7a2b4.chunk.js.map": "/Todo_react_app/static/js/2.7da7a2b4.chunk.js.map",
+    "main.css": "/Todo_react_app/static/css/main.011131f0.chunk.css",
+    "main.js": "/Todo_react_app/static/js/main.96b442ec.chunk.js",
+    "main.js.map": "/Todo_react_app/static/js/main.96b442ec.chunk.js.map",
+    "runtime-main.js": "/Todo_react_app/static/js/runtime-main.3480f4f4.js",
+    "runtime-main.js.map": "/Todo_react_app/static/js/runtime-main.3480f4f4.js.map",
+    "static/js/2.96cd8173.chunk.js": "/Todo_react_app/static/js/2.96cd8173.chunk.js",
+    "static/js/2.96cd8173.chunk.js.map": "/Todo_react_app/static/js/2.96cd8173.chunk.js.map",
     "index.html": "/Todo_react_app/index.html",
-    "static/css/main.b22d30f8.chunk.css.map": "/Todo_react_app/static/css/main.b22d30f8.chunk.css.map",
-    "static/js/2.7da7a2b4.chunk.js.LICENSE.txt": "/Todo_react_app/static/js/2.7da7a2b4.chunk.js.LICENSE.txt",
+    "static/css/main.011131f0.chunk.css.map": "/Todo_react_app/static/css/main.011131f0.chunk.css.map",
+    "static/js/2.96cd8173.chunk.js.LICENSE.txt": "/Todo_react_app/static/js/2.96cd8173.chunk.js.LICENSE.txt",
+    "static/media/First_Add_tasks.f90a96be.svg": "/Todo_react_app/static/media/First_Add_tasks.f90a96be.svg",
     "static/media/add_task-black-24dp.f32aa408.svg": "/Todo_react_app/static/media/add_task-black-24dp.f32aa408.svg",
     "static/media/assignment_late-black-24dp.9589897b.svg": "/Todo_react_app/static/media/assignment_late-black-24dp.9589897b.svg",
     "static/media/cancel.ced98c52.svg": "/Todo_react_app/static/media/cancel.ced98c52.svg",
@@ -25,9 +26,9 @@
     "static/media/trending_up_black_24dp.10b48d06.svg": "/Todo_react_app/static/media/trending_up_black_24dp.10b48d06.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.1b81292a.js",
-    "static/js/2.7da7a2b4.chunk.js",
-    "static/css/main.b22d30f8.chunk.css",
-    "static/js/main.1d3c4ecd.chunk.js"
+    "static/js/runtime-main.3480f4f4.js",
+    "static/js/2.96cd8173.chunk.js",
+    "static/css/main.011131f0.chunk.css",
+    "static/js/main.96b442ec.chunk.js"
   ]
 }
