@@ -19,8 +19,6 @@ function Nav(props) {
     e.currentTarget.classList.toggle('show-more-btn-rotate')
     navbar.current.classList.toggle('navbar-show')
   }
-
-  
   
   return(
     <>
@@ -72,10 +70,16 @@ function Nav(props) {
           </ul> 
 
       </nav>
-          <div className="show-more-btn"
-              onClick={(e) => handleClick(e)}>
+          <button className="show-more-btn"
+              onClick={(e) => handleClick(e)}
+              // focus loose
+              onBlurCapture={e => { 
+                navbar.current.classList.remove('navbar-show')
+                e.currentTarget.classList.toggle('show-more-btn-rotate')}}
+              style={{background: 'none',
+              border: 'none'}}>
             <img src={show_more_btn} alt="show more"/>
-          </div>
+          </button>
     </>
 
   )
