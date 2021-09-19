@@ -25,11 +25,11 @@ const PopUp = (props) => {
     <>
       <div style={MODAL_STYLE}>
         <div className="msg-holder-card" >
-          <h3 className="completed-task-title">
+          <h3 align='left'>
             Alert Title</h3>
      
           <span className="emptyText"> 
-          Body <span>Description, id, label, task title</span></span>
+          Body <br></br><span>Description, id, label, task title</span></span>
           <button onClick={onClose} style={{position: 'absolute', top: '0', right: '0', padding: '.5rem', background: 'none'}}>
             <img width="10" height="10" src={remove_btn} alt="remove button"/>
             </button>
