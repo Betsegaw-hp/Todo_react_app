@@ -1,26 +1,27 @@
 import React, { useRef, useState, useEffect} from 'react';
 
 function Setting() {
-  const [switchState, setSwitchState] = useState(JSON.parse(localStorage.getItem("darkMode")))
+  const isTheme = localStorage.getItem("darkMode")
+  const defaultTheme = localStorage.setItem("darkMode", false)
+  const [switchState, setSwitchState] = useState(isTheme ? JSON.parse(isTheme): defaultTheme )
 
   const switcher = useRef(null);
   
   useEffect(() => {
     if(switcher && JSON.stringify(switchState) !== "false") {
       switcher.current.classList.add("switch-slide")
+      localStorage.setItem("darkMode", true)
     } else {
        switcher.current.classList.remove("switch-slide")
+       localStorage.setItem("darkMode", false)
     }
   }, [switchState])
 
   function handleClick(e) {
-    switcher.current.classList.toggle("switch-slide")
     if(switcher.current.classList.contains("switch-slide")) {
-      setSwitchState(true)
-      localStorage.setItem("darkMode", true)
-    } else { 
       setSwitchState(false)
-      localStorage.setItem("darkMode", false)
+    } else { 
+      setSwitchState(true)
     } 
   }
  
