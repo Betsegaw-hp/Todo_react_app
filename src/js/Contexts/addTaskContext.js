@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useReducer } from 'react';
+import  useUpdateEffect  from '../CustomHooks/useUpdateEffect'
 import {  taskAdded, taskCompleted, taskFaild } from '../Reducers/actions';
 import TaskReducer from '../Reducers/TaskReducer';
 
@@ -79,9 +80,9 @@ const AddTaskContextProvider = (props) => {
     })
   },[]) 
 
-
-
- const DBopenReq = indexedDB.open(`HAPPY-TODO-App`, DB_version)
+// no intial render
+  useUpdateEffect(() => {
+    const DBopenReq = indexedDB.open(`HAPPY-TODO-App`, DB_version)
   DBopenReq.onerror = (e) => {
         //  on error
         db = e.target.result;
@@ -129,7 +130,6 @@ const AddTaskContextProvider = (props) => {
     }
 
     let objectStore = tx.objectStore(storeName), oSRequest;
-    if(Item.length > 0){
       //  clear the store
     let oSclearReq = objectStore.clear();
        oSclearReq.onsuccess = () => {
@@ -141,9 +141,11 @@ const AddTaskContextProvider = (props) => {
       console.log(task.id, 'added successfuly')
     }
     });
-    }
+    
     
   }
+  }, [tasks, completedTasks, faildTasks])
+ 
 
    
   return (
