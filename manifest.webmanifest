@@ -2,6 +2,8 @@
   "lang": "en",
   "short_name": "To Do App",
   "name": "Advanced To Do App",
+  "description": "Make your life easier by keep tracking your progress | Task reminder and Note list",
+  "categories": ["list", "task", "reminder", "groceries"],
   "start_url": "./?home=true",
   "icons": [
    
