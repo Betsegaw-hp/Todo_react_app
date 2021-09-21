@@ -2,8 +2,7 @@ import React, { useRef, useState, useEffect} from 'react';
 
 function Setting() {
   const isTheme = localStorage.getItem("darkMode")
-  const defaultTheme = localStorage.setItem("darkMode", false)
-  const [switchState, setSwitchState] = useState(isTheme ? JSON.parse(isTheme): defaultTheme )
+  const [switchState, setSwitchState] = useState(isTheme ? JSON.parse(isTheme): _Default_ThemeVal() )
 
   const switcher = useRef(null);
   
@@ -23,6 +22,11 @@ function Setting() {
     } else { 
       setSwitchState(true)
     } 
+  }
+
+  function _Default_ThemeVal() {
+    localStorage.setItem("darkMode", false)
+    return false
   }
  
   return (
