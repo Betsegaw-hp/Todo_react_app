@@ -30,7 +30,7 @@ const ListCard = (props) => {
         return setTimeGap('Expired');
       }
       console.log(day)
-      return setTimeGap(`${day !== 0 ? day + ' day left': 'less than a day'}`);
+      return setTimeGap(`${day !== 0 ? day + `${ day > 1 ? ' days left': ' day left'}`: 'less than a day'}`);
 
   },[dispatch, dispatchFailure, id, tasks])
 

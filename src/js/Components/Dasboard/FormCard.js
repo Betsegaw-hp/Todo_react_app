@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { TaskContext } from '../../Contexts/addTaskContext';
 import { taskAdded } from '../../Reducers/actions';
- 
 
 
 const FormCard = () => {
@@ -51,7 +50,7 @@ const FormCard = () => {
                    onChange={e => setSdate(e.target.value)} 
                    required/><br></br>
 
-            <label htmlFor="dead-line">Dead Line: </label>
+            <label htmlFor="dead-line">Due Date: </label>
             <input type="date"
                    id="dead-line"
                    className="dead-line"
