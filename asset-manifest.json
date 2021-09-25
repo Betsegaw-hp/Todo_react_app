@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Todo_react_app/static/css/main.0ce0baf1.chunk.css",
+    "main.css": "/Todo_react_app/static/css/main.7199f418.chunk.css",
     "main.js": "/Todo_react_app/static/js/main.41a7c353.chunk.js",
     "main.js.map": "/Todo_react_app/static/js/main.41a7c353.chunk.js.map",
     "runtime-main.js": "/Todo_react_app/static/js/runtime-main.3480f4f4.js",
@@ -8,7 +8,7 @@
     "static/js/2.96cd8173.chunk.js": "/Todo_react_app/static/js/2.96cd8173.chunk.js",
     "static/js/2.96cd8173.chunk.js.map": "/Todo_react_app/static/js/2.96cd8173.chunk.js.map",
     "index.html": "/Todo_react_app/index.html",
-    "static/css/main.0ce0baf1.chunk.css.map": "/Todo_react_app/static/css/main.0ce0baf1.chunk.css.map",
+    "static/css/main.7199f418.chunk.css.map": "/Todo_react_app/static/css/main.7199f418.chunk.css.map",
     "static/js/2.96cd8173.chunk.js.LICENSE.txt": "/Todo_react_app/static/js/2.96cd8173.chunk.js.LICENSE.txt",
     "static/media/First_Add_tasks.375f9510.svg": "/Todo_react_app/static/media/First_Add_tasks.375f9510.svg",
     "static/media/add_task-black-24dp.f32aa408.svg": "/Todo_react_app/static/media/add_task-black-24dp.f32aa408.svg",
@@ -28,7 +28,7 @@
   "entrypoints": [
     "static/js/runtime-main.3480f4f4.js",
     "static/js/2.96cd8173.chunk.js",
-    "static/css/main.0ce0baf1.chunk.css",
+    "static/css/main.7199f418.chunk.css",
     "static/js/main.41a7c353.chunk.js"
   ]
 }
