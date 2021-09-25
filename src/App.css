@@ -66,17 +66,20 @@ body {
 === scroll bar ===
 */
 body::-webkit-scrollbar,
-.nav-list::-webkit-scrollbar {
+.nav-list::-webkit-scrollbar,
+#portal .completed-tasks-container::-webkit-scrollbar {
   width: .5rem;
 }
 
 body::-webkit-scrollbar-track,
-.nav-list::-webkit-scrollbar-track-piece {
+.nav-list::-webkit-scrollbar-track-piece,
+#portal .completed-tasks-container::-webkit-scrollbar-track {
   background: #1e1e24;
 }
 
 body::-webkit-scrollbar-thumb,
-.nav-list::-webkit-scrollbar-thumb {
+.nav-list::-webkit-scrollbar-thumb,
+#portal .completed-tasks-container::-webkit-scrollbar-thumb {
   background: var(--light-blue);
   border-radius: .3rem; 
 }
@@ -210,6 +213,7 @@ body::-webkit-scrollbar-thumb,
  #portal .completed-tasks-container { 
   padding:0 .5rem; 
   min-width: 50vw;
+  max-height: 100vh;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -218,6 +222,7 @@ body::-webkit-scrollbar-thumb,
   background: var(--background-form);
   border-radius: .3rem;
   transition: var(--transition);
+  overflow-y: auto;
  }
  #portal .completed-tasks-container .completed-task-title {
    padding: 0 .5rem;
