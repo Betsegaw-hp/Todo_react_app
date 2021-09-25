@@ -1,6 +1,6 @@
 // track time and figure out how much time left
 // track time(date) without hours
-const currentDate = () => {
+export const currentDate = () => {
   // hours ignored intentinally
   const today = new Date().setHours(0,0,0,0,0)
   return today;
@@ -9,10 +9,6 @@ const currentDate = () => {
  function trackTimeInterval(deadLine, startDate) {
     // One day Time in ms (milliseconds) 
     const one_day = 1000 * 60 * 60 * 24 ;
-
-  //  browser calender & local time have one day diff. so make it right
-   deadLine += one_day;
-   startDate += one_day;
 
    const Today = currentDate();
    
