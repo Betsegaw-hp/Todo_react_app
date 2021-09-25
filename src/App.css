@@ -211,7 +211,7 @@ body::-webkit-scrollbar-thumb,
  }
  #portal .completed-tasks-container { 
   padding:0 .5rem; 
-  min-width: 50vw;
+  max-width: calc(100vw - 15vw);
   max-height: 100vh;
   position: fixed;
   top: 50%;
