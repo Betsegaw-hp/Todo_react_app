@@ -171,7 +171,6 @@ body::-webkit-scrollbar-thumb,
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  z-index: -1;
   background: #4B52607D ;
 }
 .show-more-btn-rotate {
@@ -235,6 +234,7 @@ body::-webkit-scrollbar-thumb,
  #portal .completed-tasks-ul .completed-task-list {
    display: flex;
    justify-content: space-between;
+   align-items: center;
    padding: .2rem;
    cursor: pointer;
    border-radius: 0;
@@ -273,11 +273,13 @@ body::-webkit-scrollbar-thumb,
    font-size: 12px;
  }
  #portal .completed-tasks-ul .completed-task-list .remove-btn img {
+   position: relative;
    width: 10px;
+   height: 10px;
    padding: 1rem;
- }
- #portal .completed-tasks-ul .completed-task-list .remove-btn:hover {
-  background: var(--background2);
+  }
+  #portal .completed-tasks-ul .completed-task-list .remove-btn:hover {
+    background: var(--background2);
  }
  #portal .completed-tasks-container .emptyText {
    display: block;
@@ -788,13 +790,12 @@ for significantly small devices
     padding: .5rem;
     /* margin: 0 .5rem; */
   }
-  .Dashboard nav .nav-btn-wraper div:focus::after {
+  .Dashboard nav .nav-btn-wraper div:focus::before {
     content: '';
     position: absolute;
     inset: 0;
     border-radius: 50%;
     background: #d8d8d873;
-    z-index: -1;
   } 
   /* .nav-btn-wraper::after {
     content: '';
