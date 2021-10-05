@@ -47,7 +47,10 @@ import { taskEdited } from '../../../Reducers/actions';
     <div style={MODAL_STYLE}>
       {/* <button onClick={onClose}>close</button> */}
       <form className="form-card" onSubmit={e => HandleEditSubmit(e)}>
-            <h3>Edit</h3>
+            <div className="title-wrapper">
+              <h3>Edit</h3> 
+              <button className="danger-btn" onClick={onClose}>Close</button>
+            </div> 
             
             <input type="text" 
                   placeholder=""

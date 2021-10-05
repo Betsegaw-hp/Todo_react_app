@@ -28,7 +28,10 @@ const FaildTasksLists = ({tasks, modalOpen, removeTask, onClose}) => {
     <>
      <div style={OVERLAY_SHADOW} onClick={onClose}></div>
      <div className="completed-tasks-container">
-       <h3 className="faild-task-title">Faild Tasks</h3>
+       <div className="title-wrapper">
+          <h3 className="faild-task-title">Faild Tasks</h3>
+          <button className="danger-btn" onClick={onClose}>Close</button>
+       </div>
       <ul className="completed-tasks-ul">
         {tasks && tasks.map(task=> (
           <li key={task.id}  id={task.id} 
