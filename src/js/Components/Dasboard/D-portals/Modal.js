@@ -49,7 +49,6 @@ import { taskEdited } from '../../../Reducers/actions';
       <form className="form-card" onSubmit={e => HandleEditSubmit(e)}>
             <div className="title-wrapper">
               <h3>Edit</h3> 
-              <button className="danger-btn" onClick={onClose}>Close</button>
             </div> 
             
             <input type="text" 

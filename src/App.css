@@ -228,9 +228,6 @@ body::-webkit-scrollbar-thumb,
    justify-content: space-between;
    align-items: center;
  }
- #portal .title-wrapper .remove-btn {
-   cursor: pointer;
- }
  #portal .completed-tasks-container .completed-task-title {
    padding: 0 .5rem;
    color: var(--light-blue);
