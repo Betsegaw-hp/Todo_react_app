@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## live link
+https://betsegaw-hp.github.io/Todo_react_app/
 ## Available Scripts
 
 In the project directory, you can run:
